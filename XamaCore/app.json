@@ -1,0 +1,22 @@
+{
+    "enableLog": true,
+    "logConfig": {
+        "fileName": "teste.log",
+        "path": "c:/temp/",
+        "maxSize": 5000,
+        "maxFiles": 5
+    },
+    "tasks": [
+        {
+            "name": "jobTest",
+            "useShadowCopy": false,
+            "paths": [
+                {
+                    "path":"d:/Temporario"
+                }
+            ],
+            "target":"c:/temp/myBackup1.zip"
+        }
+    ]
+
+}
