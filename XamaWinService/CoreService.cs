@@ -1,9 +1,10 @@
 using System;
 using NLog;
 using Quartz;
+using XamaCore;
 using XamaCore.Configs;
 
-namespace XamaCore
+namespace XamaWinService
 {
     class CoreService
     {
@@ -18,11 +19,11 @@ namespace XamaCore
         private IScheduler _scheduler;
 
         private Logger _logger => NLog.LogManager.GetCurrentClassLogger();
-        
+
         public void Start()
         {
             _logger.Info("Service started");
-            foreach(var task in _appConfig.Tasks)
+            foreach (var task in _appConfig.Tasks)
             {
 
                 var jobData = new JobDataMap();
@@ -32,7 +33,7 @@ namespace XamaCore
                     .SetJobData(jobData)
                     .Build();
 
-                var trigger = TriggerBuilder.Create() 
+                var trigger = TriggerBuilder.Create()
                     .WithIdentity(task.Name, task.Name)
                     .StartNow()
                     .Build();

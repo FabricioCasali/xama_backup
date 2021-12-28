@@ -6,7 +6,7 @@ using XamaCore.Configs;
 namespace XamaCore
 {
     [DisallowConcurrentExecution]
-    class BackupJob : IJob
+    public class BackupJob : IJob
     {
         private Logger _logger => NLog.LogManager.GetCurrentClassLogger();
         

@@ -1,6 +1,6 @@
 namespace XamaCore.Configs
 {
-    class ConfigPattern
+    public class ConfigPattern
     {
 
         public string Pattern { get; set; }

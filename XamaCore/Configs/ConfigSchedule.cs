@@ -3,7 +3,7 @@ namespace XamaCore.Configs
     /// <summary>
     /// Controla as opções de agendamento do backup 
     /// </summary>
-    class ConfigSchedule
+    public class ConfigSchedule
     {
 
         /// <summary>

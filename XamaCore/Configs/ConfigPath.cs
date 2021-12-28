@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 
 namespace XamaCore.Configs
 {
-    class ConfigPath
+    public class ConfigPath
     {
         [JsonProperty("path")]
         public string Path { get; set; }

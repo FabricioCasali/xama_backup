@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 
 namespace XamaCore.Configs
 {
-    class ConfigLog
+    public class ConfigLog
     {
         [JsonProperty("fileName")]
         public string LogFileName { get; set; }

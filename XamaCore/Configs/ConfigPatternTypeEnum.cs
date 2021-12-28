@@ -1,6 +1,6 @@
 namespace XamaCore.Configs
 {
-    enum ConfigPatternTypeEnum
+    public enum ConfigPatternTypeEnum
     {
         Name = 0,
         Regex = 1

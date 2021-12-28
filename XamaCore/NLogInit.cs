@@ -7,7 +7,7 @@ using XamaCore.Configs;
 
 namespace XamaCore
 {
-    class NLogInit
+    public class NLogInit
     {
         public LogFactory Configure(ConfigApp ca)
         {

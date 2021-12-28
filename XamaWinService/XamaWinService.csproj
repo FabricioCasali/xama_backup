@@ -1,9 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="Autofac" Version="6.3.0" />
     <PackageReference Include="Autofac.Extras.Quartz" Version="7.3.0" />
@@ -17,5 +17,7 @@
     <PackageReference Include="Topshelf.NLog" Version="4.3.0+build.251.sha.509556a" />
     <PackageReference Include="Topshelf.Quartz" Version="0.4.0.1" />
   </ItemGroup>
-
+  <ItemGroup>
+    <ProjectReference Include="..\XamaCore\XamaCore.csproj" />
+  </ItemGroup>
 </Project>

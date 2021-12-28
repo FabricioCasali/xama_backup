@@ -1,24 +1,25 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using Newtonsoft.Json;
 using Topshelf;
-using XamaCore.Configs;
 using Topshelf.Autofac;
+using XamaCore;
+using XamaCore.Configs;
 
-namespace XamaCore
+namespace XamaWinService
 {
     class Program
     {
-
         static void Main(string[] args)
         {
-            // todo : add exception if no config file
+            // todo : add exception if no config file 
             ConfigApp appConfig = new ConfigApp();
 
             if (File.Exists("./app.json"))
                 appConfig = JsonConvert.DeserializeObject<ConfigApp>(File.ReadAllText("./app.json"));
 
             var container = Bootstrapper.BuildContainer(appConfig);
-            
+
             var rc = HostFactory.Run(x =>
             {
 
@@ -37,7 +38,7 @@ namespace XamaCore
                 x.SetDescription("Xamã Core Service");
                 x.SetDisplayName("Xamã Core Service");
                 x.SetServiceName("XamaCoreService");
-                
+
             });
         }
     }

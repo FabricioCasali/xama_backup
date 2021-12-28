@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace XamaCore.Configs
 {
-    class ConfigApp
+    public class ConfigApp
     {
         [JsonProperty("tasks")]
         public IList<ConfigTask> Tasks { get; set; }
