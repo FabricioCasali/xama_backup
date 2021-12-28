@@ -20,9 +20,28 @@ namespace XamaCore.Configs
         public IList<ConfigSchedule> Schedules { get; set; }
 
         [JsonProperty("target")]
-        public string Target { get; set; }
+        public ConfigTarget Target { get; set; }
 
         [JsonProperty("useShadowCopy")]
         public bool UseVolumeShadowCopy { get; set; }
+    }
+
+    public class ConfigTarget
+    {
+        [JsonProperty("fileName")]
+        public string FileName { get; set; }
+
+        [JsonProperty("path")]
+        public string Path { get; set; }
+
+        [JsonProperty("compressionMethod")]
+        public CompressionMethod CompressionMethod { get; set; }
+
+
+    }
+
+    public enum CompressionMethod
+    {
+        SevenZip = 1,
     }
 }
