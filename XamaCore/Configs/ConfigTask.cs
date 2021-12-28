@@ -6,7 +6,7 @@ namespace XamaCore.Configs
     class ConfigTask
     {
         [JsonProperty("name")]
-        public string TaskName { get; set; }
+        public string Name { get; set; }
 
         [JsonProperty("paths")]
         public IList<ConfigPath> Paths { get; set; }

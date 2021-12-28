@@ -28,17 +28,17 @@ namespace XamaCore
                 var jobData = new JobDataMap();
                 jobData.Add("task", task);
                 var job = JobBuilder.Create<BackupJob>()
-                    .WithIdentity(task.TaskName, task.TaskName)
+                    .WithIdentity(task.Name, task.Name)
                     .SetJobData(jobData)
                     .Build();
 
                 var trigger = TriggerBuilder.Create() 
-                    .WithIdentity(task.TaskName, task.TaskName)
+                    .WithIdentity(task.Name, task.Name)
                     .StartNow()
                     .Build();
 
                 _scheduler.ScheduleJob(job, trigger);
-                _logger.Info("Task {0} scheduled", task.TaskName);
+                _logger.Info("Task {0} scheduled", task.Name);
             }
             _scheduler.Start().ConfigureAwait(false).GetAwaiter().GetResult();
         }

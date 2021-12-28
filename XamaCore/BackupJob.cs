@@ -14,6 +14,8 @@ namespace XamaCore
         {
             var data = context.MergedJobDataMap;
             var task =  data["task"] as ConfigTask;
+
+            _logger.Info($"Starting backup job for {task.Name}");
             return Task.CompletedTask;
         }
     }
