@@ -3,20 +3,24 @@
     "logConfig": {
         "fileName": "teste.log",
         "path": "c:/temp/",
-        "maxSize": 5000,
+        "maxSize": 50000000,
         "maxFiles": 5
     },
     "tasks": [
         {
             "name": "jobTest",
             "useShadowCopy": false,
+            "compressionLevel": 9,
             "paths": [
                 {
-                    "path":"d:/Temporario"
+                    "path": "d:/Temporario",
+                    "includesSubfolders": true
                 }
             ],
-            "target":"c:/temp/myBackup1.zip"
+            "target": {
+                "fileName": "minhacopia.7zip",
+                "path": "c:/temp/"
+            }
         }
     ]
-
 }

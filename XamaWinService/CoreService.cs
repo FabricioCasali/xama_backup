@@ -8,17 +8,18 @@ namespace XamaWinService
 {
     class CoreService
     {
-        public CoreService(ConfigApp appConfig, IScheduler scheduler)
+        public CoreService(ConfigApp appConfig, IScheduler scheduler, Logger logger)
         {
             _appConfig = appConfig;
             _scheduler = scheduler;
+            _logger = logger;
         }
 
         private ConfigApp _appConfig;
 
         private IScheduler _scheduler;
 
-        private Logger _logger => NLog.LogManager.GetCurrentClassLogger();
+        private Logger _logger;
 
         public void Start()
         {

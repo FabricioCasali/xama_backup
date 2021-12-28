@@ -3,6 +3,7 @@ using Autofac;
 using System.Collections.Specialized;
 using Autofac.Extras.Quartz;
 using XamaCore;
+using NLog;
 
 namespace XamaWinService
 {
@@ -27,6 +28,13 @@ namespace XamaWinService
 
             builder.RegisterModule(new QuartzAutofacJobsModule(typeof(BackupJob).Assembly));
             builder.Register<ConfigApp>(c => appConfig).SingleInstance();
+
+            if (appConfig.EnableLog)
+            {
+                var logFactory = new NLogInit().Configure(appConfig);
+                builder.RegisterInstance(logFactory).SingleInstance();
+                builder.Register<Logger>(q => q.Resolve<LogFactory>().GetCurrentClassLogger()).SingleInstance();
+            }
 
             var container = builder.Build();
             return container;
