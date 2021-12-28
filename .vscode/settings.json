@@ -1,3 +1,9 @@
 {
-    "dotnet-test-explorer.testProjectPath":"**/*Tests.@(csproj|vbproj|fsproj)"
+    "dotnet-test-explorer.testProjectPath": "**/*Tests.@(csproj|vbproj|fsproj)",
+    "logViewer.watch": [
+        {
+            "title": "Xamã",
+            "pattern": "c:/temp/teste.log"
+        },
+    ]
 }
