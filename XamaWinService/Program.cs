@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using Topshelf;
 using Topshelf.Autofac;
 using XamaCore;
@@ -12,32 +13,33 @@ namespace XamaWinService
     {
         static void Main(string[] args)
         {
-            // todo : add exception if no config file 
-            ConfigApp appConfig = new ConfigApp();
+            if (!File.Exists("./app.json"))
+                throw new FileNotFoundException($"missing config file : app.json");
 
-            if (File.Exists("./app.json"))
-                appConfig = JsonConvert.DeserializeObject<ConfigApp>(File.ReadAllText("./app.json"));
+            var jss = new JsonSerializerSettings();
+            jss.Converters.Add(new StringEnumConverter());
+            var cfg = JsonConvert.DeserializeObject<ConfigApp>(File.ReadAllText("./app.json"), jss);
 
-            var container = Bootstrapper.BuildContainer(appConfig);
+            var container = Bootstrapper.BuildContainer(cfg);
 
-            var rc = HostFactory.Run(x =>
+            var exitCode = HostFactory.Run(p =>
             {
 
-                x.UseAutofacContainer(container);
-                x.Service<CoreService>(s =>
+                p.UseAutofacContainer(container);
+                p.Service<CoreService>(s =>
                 {
                     s.ConstructUsingAutofacContainer();
                     s.WhenStarted(tc => tc.Start());
                     s.WhenStopped(tc => tc.Stop());
                 });
-                x.RunAsLocalSystem();
-                if (appConfig.EnableLog)
+                p.RunAsLocalSystem();
+                if (cfg.EnableLog)
                 {
-                    x.UseNLog(new NLogInit().Configure(appConfig));
+                    p.UseNLog(new NLogInit().Configure(cfg));
                 }
-                x.SetDescription("Xamã Core Service");
-                x.SetDisplayName("Xamã Core Service");
-                x.SetServiceName("XamaCoreService");
+                p.SetDescription("Xamã Core Service");
+                p.SetDisplayName("Xamã Core Service");
+                p.SetServiceName("XamaCoreService");
 
             });
         }
