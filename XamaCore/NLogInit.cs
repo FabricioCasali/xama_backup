@@ -24,8 +24,8 @@ namespace XamaCore
             };
 
             var wrapper = new AsyncTargetWrapper(logFile, 5000, AsyncTargetWrapperOverflowAction.Discard);
-            config.AddRule(NLog.LogLevel.Trace, NLog.LogLevel.Fatal, wrapper);
-            config.AddRule(NLog.LogLevel.Trace, NLog.LogLevel.Fatal, console);
+            config.AddRule(ca.LogConfig.ShowTrace ? NLog.LogLevel.Trace : NLog.LogLevel.Debug, NLog.LogLevel.Fatal, wrapper);
+            config.AddRule(ca.LogConfig.ShowTrace ? NLog.LogLevel.Trace : NLog.LogLevel.Debug, NLog.LogLevel.Fatal, console);
             var lf = new LogFactory();
             lf.Configuration = config;
             return lf;

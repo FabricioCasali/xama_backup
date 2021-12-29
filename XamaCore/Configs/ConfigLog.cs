@@ -16,5 +16,8 @@ namespace XamaCore.Configs
         [JsonProperty("maxFiles")]
         public int MaxArchiveFiles { get; set; }
 
+        [JsonProperty("showTrace")]
+        public bool ShowTrace { get; set; }
+
     }
 }

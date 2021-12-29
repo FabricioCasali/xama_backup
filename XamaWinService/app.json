@@ -4,21 +4,54 @@
         "fileName": "teste.log",
         "path": "c:/temp/",
         "maxSize": 50000000,
-        "maxFiles": 5
+        "maxFiles": 5,
+        "showTrace": false
     },
     "tasks": [
         {
             "name": "jobTest",
-            "useShadowCopy": false,
             "compressionLevel": 9,
             "paths": [
                 {
-                    "path": "d:/Temporario",
-                    "includesSubfolders": true
+                    "path": "c:/Desenv",
+                    "includesSubfolders": true,
+                    "excludes": [
+                        {
+                            "pattern": "bin",
+                            "applyesTo": "Directory"
+                        },
+                        {
+                            "pattern": "obj",
+                            "applyesTo": "Directory"
+                        },
+                        {
+                            "pattern": "node_modules",
+                            "applyesTo": "Directory"
+                        },
+                        {
+                            "pattern": "dbs",
+                            "applyesTo": "Directory"
+                        },
+                        {
+                            "pattern": "gps",
+                            "applyesTo": "Directory"
+                        },
+                        {
+                            "pattern": "packages",
+                            "applyesTo": "Directory"
+                        },
+                        {
+                            "pattern": ".*"
+                        },
+                        {
+                            "pattern": "*.r",
+                            "applyesTo": "File"
+                        }
+                    ]
                 }
             ],
             "target": {
-                "fileName": "minhacopia.7zip",
+                "fileName": "minhacopia2.7zip",
                 "path": "c:/temp/"
             }
         }
