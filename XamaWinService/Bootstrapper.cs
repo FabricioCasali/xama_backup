@@ -16,7 +16,7 @@ namespace XamaWinService
 
             var schedulerConfig = new NameValueCollection
         {
-            { "quartz.scheduler.instanceName", "MyScheduler" },
+            { "quartz.scheduler.instanceName", "CoreScheduler" },
             { "quartz.jobStore.type", "Quartz.Simpl.RAMJobStore, Quartz" },
             { "quartz.threadPool.threadCount", "3" }
         };
@@ -33,7 +33,7 @@ namespace XamaWinService
             {
                 var logFactory = new NLogInit().Configure(appConfig);
                 builder.RegisterInstance(logFactory).SingleInstance();
-                builder.Register<Logger>(q => q.Resolve<LogFactory>().GetCurrentClassLogger()).SingleInstance();
+                builder.Register<Logger>(q => q.Resolve<LogFactory>().GetCurrentClassLogger());
             }
 
             var container = builder.Build();
