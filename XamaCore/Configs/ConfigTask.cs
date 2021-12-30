@@ -5,11 +5,10 @@ namespace XamaCore.Configs
 {
     public class ConfigTask
     {
-
         public ConfigTask()
         {
-
         }
+
         [JsonProperty("name")]
         public string Name { get; set; }
 
@@ -23,9 +22,6 @@ namespace XamaCore.Configs
         public IList<ConfigPattern> GlobalExclude { get; set; }
 
         public IList<ConfigSchedule> Schedules { get; set; }
-
-        [JsonProperty("compressionLevel")]
-        public int CompressionLevel { get; set; }
 
         [JsonProperty("target")]
         public ConfigTarget Target { get; set; }

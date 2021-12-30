@@ -1,15 +1,16 @@
-using XamaCore.Configs;
 using Autofac;
-using System.Collections.Specialized;
 using Autofac.Extras.Quartz;
+using LiteDB;
+using System.Collections.Specialized;
 using XamaCore;
-using NLog;
+using XamaCore.Compressors;
+using XamaCore.Configs;
 
 namespace XamaWinService
 {
     static class Bootstrapper
     {
-        public static IContainer BuildContainer(ConfigApp appConfig)
+        public static IContainer BuildContainer(ConfigApp cfg)
         {
             var builder = new ContainerBuilder();
             builder.RegisterType<CoreService>();
@@ -26,15 +27,17 @@ namespace XamaWinService
                 ConfigurationProvider = c => schedulerConfig
             });
 
-            builder.RegisterModule(new QuartzAutofacJobsModule(typeof(BackupJob).Assembly));
-            builder.Register<ConfigApp>(c => appConfig).SingleInstance();
 
-            if (appConfig.EnableLog)
-            {
-                var logFactory = new NLogInit().Configure(appConfig);
-                builder.RegisterInstance(logFactory).SingleInstance();
-                builder.Register<Logger>(q => q.Resolve<LogFactory>().GetCurrentClassLogger());
-            }
+            var db = LiteDBINit.Init(cfg);
+            var lr = new LiteRepository(db);
+            builder.RegisterInstance<LiteDatabase>(db).SingleInstance();
+            builder.RegisterInstance<LiteRepository>(lr).SingleInstance();
+            builder.RegisterModule(new QuartzAutofacJobsModule(typeof(BackupJob).Assembly));
+            builder.Register<ConfigApp>(c => cfg).SingleInstance();
+            builder.RegisterType<BackupProcessor>();
+
+            builder.RegisterType<CompressZip>().Named<ICompress>("zip");
+            builder.RegisterType<Compress7zip>().Named<ICompress>("7zip");
 
             var container = builder.Build();
             return container;

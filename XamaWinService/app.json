@@ -10,49 +10,50 @@
     "tasks": [
         {
             "name": "jobTest",
-            "compressionLevel": 9,
             "paths": [
                 {
-                    "path": "c:/Desenv",
+                    "path": "c:/Desenv/auditPos3",
                     "includesSubfolders": true,
                     "excludes": [
                         {
                             "pattern": "bin",
-                            "applyesTo": "Directory"
+                            "appliesTo": "directory"
                         },
                         {
                             "pattern": "obj",
-                            "applyesTo": "Directory"
+                            "appliesTo": "Directory"
                         },
                         {
                             "pattern": "node_modules",
-                            "applyesTo": "Directory"
+                            "appliesTo": "Directory"
                         },
                         {
                             "pattern": "dbs",
-                            "applyesTo": "Directory"
+                            "appliesTo": "Directory"
                         },
                         {
                             "pattern": "gps",
-                            "applyesTo": "Directory"
+                            "appliesTo": "Directory"
                         },
                         {
                             "pattern": "packages",
-                            "applyesTo": "Directory"
+                            "appliesTo": "Directory"
                         },
                         {
                             "pattern": ".*"
                         },
                         {
                             "pattern": "*.r",
-                            "applyesTo": "File"
+                            "appliesTo": "File"
                         }
                     ]
                 }
             ],
             "target": {
-                "fileName": "minhacopia2.7zip",
-                "path": "c:/temp/"
+                "fileName": "ultra",
+                "path": "c:/temp/",
+                "compressionMethod": "Zip",
+                "compressionLevel": "Ultra"
             }
         }
     ]

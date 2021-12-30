@@ -5,5 +5,16 @@
             "title": "Xamã",
             "pattern": "c:/temp/teste.log"
         },
+    ],
+    "cSpell.words": [
+        "Xama"
+    ],
+    "cSpell.ignorePaths": [
+        "app.json",
+        "node_modules",
+        "vscode-extension",
+        ".git/objects",
+        ".vscode",
+        ".vscode-insiders"
     ]
 }

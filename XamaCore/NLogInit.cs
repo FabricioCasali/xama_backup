@@ -7,12 +7,12 @@ using XamaCore.Configs;
 
 namespace XamaCore
 {
-    public class NLogInit
+    public static class NLogInit
     {
-        public LogFactory Configure(ConfigApp ca)
+        public static void Configure(ConfigApp ca)
         {
             if (ca.LogConfig == null)
-                return null;
+                return;
 
             var config = new LoggingConfiguration();
             var console = new ColoredConsoleTarget("logconsole");
@@ -26,9 +26,7 @@ namespace XamaCore
             var wrapper = new AsyncTargetWrapper(logFile, 5000, AsyncTargetWrapperOverflowAction.Discard);
             config.AddRule(ca.LogConfig.ShowTrace ? NLog.LogLevel.Trace : NLog.LogLevel.Debug, NLog.LogLevel.Fatal, wrapper);
             config.AddRule(ca.LogConfig.ShowTrace ? NLog.LogLevel.Trace : NLog.LogLevel.Debug, NLog.LogLevel.Fatal, console);
-            var lf = new LogFactory();
-            lf.Configuration = config;
-            return lf;
+            LogManager.Configuration = config;
         }
 
     }
