@@ -8,7 +8,7 @@ namespace XamaCore.Configs
         {
             this.Mode = ConfigPatternMode.Name;
             this.PatternType = ConfigPatternTypeEnum.Wildcard;
-            this.ApplyesTo = ConfigPatternFileType.Both;
+            this.AppliesTo = ConfigPatternFileType.Both;
         }
 
         [JsonProperty("pattern")]
@@ -20,12 +20,12 @@ namespace XamaCore.Configs
         [JsonProperty("mode")]
         public ConfigPatternMode Mode { get; set; }
 
-        [JsonProperty("applyesTo")]
-        public ConfigPatternFileType ApplyesTo { get; set; }
+        [JsonProperty("appliesTo")]
+        public ConfigPatternFileType AppliesTo { get; set; }
 
         public override string ToString()
         {
-            return $"{this.PatternType.ToString()} - {this.Pattern}, mode: {this.Mode.ToString()}, applyesTo: {this.ApplyesTo.ToString()}";
+            return $"{this.PatternType.ToString()} - {this.Pattern}, mode: {this.Mode.ToString()}, applyesTo: {this.AppliesTo.ToString()}";
         }
     }
 }
