@@ -9,8 +9,6 @@ namespace XamaCore.Configs
         public ConfigPath()
         {
             IncludeSubfolders = true;
-            Includes = new List<ConfigPattern>();
-            Excludes = new List<ConfigPattern>();
         }
 
         [JsonProperty("path")]

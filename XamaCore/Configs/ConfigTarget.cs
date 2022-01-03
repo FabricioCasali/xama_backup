@@ -6,7 +6,7 @@ namespace XamaCore.Configs
     {
         public ConfigTarget()
         {
-            CompressionLevel = ConfigCompressionLevel.Ultra;
+            CompressionLevel = ConfigCompressionLevel.Normal;
         }
 
         [JsonProperty("fileName")]

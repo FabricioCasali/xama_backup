@@ -28,12 +28,20 @@ namespace XamaCore
         /// <summary> create a unique name to the backup file </summary>
         private static string GetFileName(string basePath, string name, ConfigCompressionMethod method)
         {
-            var extension = "";
-            if (method == ConfigCompressionMethod.Zip)
-                extension = "7zip";
-            else
-                extension = "zip";
-            var fileName = Path.Combine(basePath, $"{name}_{DateTime.Now.ToString("yyyyMMddHHmmss")}.{extension}");
+            var extension = Path.GetExtension(name);
+            if (string.IsNullOrEmpty(extension))
+            {
+                // TODO change this to a more clean solution
+                if (method == ConfigCompressionMethod.SevenZip)
+                    extension = "7zip";
+                else
+                    extension = "zip";
+            }
+            else if (extension.StartsWith("."))
+                extension = extension.Substring(1);
+
+            var baseName = Path.GetFileNameWithoutExtension(name);
+            var fileName = Path.Combine(basePath, $"{baseName}_{DateTime.Now.ToString("yyyyMMddHHmmss")}.{extension}");
             return fileName;
         }
 
@@ -43,10 +51,6 @@ namespace XamaCore
             var outputPath = GetFileName(t.Target.Path, t.Target.FileName, t.Target.CompressionMethod);
             var backupInfo = new BackupInfo();
             _rep.Insert<BackupInfo>(backupInfo, "backup_info");
-            var compressMethod = "zip";
-            if (t.Target.CompressionMethod == ConfigCompressionMethod.SevenZip)
-                compressMethod = "7zip";
-            //            _compressor = _container.ResolveNamed<ICompress>(compressMethod);
             _compressor.OpenFile(outputPath, t.Target.CompressionLevel);
 
             foreach (var configPath in t.Paths)
@@ -83,7 +87,6 @@ namespace XamaCore
                 else
                 {
                     _logger.Trace($"Keeping {fileInfo.FullName} by inclusion rule");
-                    return FileAction.Backup;
                 }
             }
 
@@ -101,7 +104,7 @@ namespace XamaCore
         }
 
         /// <summary> transform a file wildcard pattern (ex: *somefile*.t?t) to a regex pattern </summary>
-        private static string WildCardToRegular(string value)
+        private static string WildCardToRegex(string value)
         {
             return "^" + Regex.Escape(value).Replace("\\?", ".").Replace("\\*", ".*") + "$";
         }
@@ -112,7 +115,6 @@ namespace XamaCore
             var isMatch = false;
             foreach (var rule in rules)
             {
-
                 if (rule.AppliesTo != ConfigPatternFileType.Both)
                 {
                     if ((rule.AppliesTo == ConfigPatternFileType.File && fi.Attributes.HasFlag(FileAttributes.Directory)) ||
@@ -123,7 +125,7 @@ namespace XamaCore
                 Regex regex;
                 if (rule.PatternType == ConfigPatternTypeEnum.Wildcard)
                 {
-                    regex = new Regex(WildCardToRegular(rule.Pattern), RegexOptions.IgnoreCase);
+                    regex = new Regex(WildCardToRegex(rule.Pattern), RegexOptions.IgnoreCase);
                 }
                 else
                 {
@@ -158,9 +160,6 @@ namespace XamaCore
             var entries = dirInfo.GetFileSystemInfos("*", SearchOption.TopDirectoryOnly).ToList();
             foreach (var entry in entries)
             {
-                var action = CheckActionForFile(configPath, entry);
-                if (action == FileAction.Skip)
-                    continue;
                 if (entry.Attributes.HasFlag(FileAttributes.Directory))
                 {
                     if (!configPath.IncludeSubfolders)
@@ -171,6 +170,9 @@ namespace XamaCore
                         continue;
                     }
                 }
+                var action = CheckActionForFile(configPath, entry);
+                if (action == FileAction.Skip)
+                    continue;
                 backupInfo.NumberOfFiles++;
                 var bf = new BackupFile()
                 {
