@@ -13,21 +13,21 @@ namespace XamaWinService
     public class BackupJob : IJob
     {
         private ILogger _logger => LogManager.GetCurrentClassLogger();
-        private BackupProcessor _processor;
+
+        private ILifetimeScope _scope;
         private LiteRepository _rep;
 
-        public BackupJob(BackupProcessor bp)
+        public BackupJob(ILifetimeScope scope)
         {
-            _processor = bp;
+            _scope = scope;
         }
 
         public Task Execute(IJobExecutionContext context)
         {
             var data = context.MergedJobDataMap;
             var task = data["task"] as ConfigTask;
-
-
-            var result = _processor.Process(task);
+            var processor = _scope.Resolve<BackupProcessor>(new NamedParameter("compress", task.Target.CompressionMethod.ToString()));
+            var result = processor.Process(task);
 
             return Task.CompletedTask;
         }
