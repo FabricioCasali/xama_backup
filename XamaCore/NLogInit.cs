@@ -14,6 +14,11 @@ namespace XamaCore
             if (ca.LogConfig == null)
                 return;
 
+            if (LogManager.Configuration != null)
+            {
+                LogManager.Configuration = null;
+            }
+
             var config = new LoggingConfiguration();
             var console = new ColoredConsoleTarget("logconsole");
             var logFile = new FileTarget("logfile")
