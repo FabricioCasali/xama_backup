@@ -34,7 +34,27 @@ namespace XamaCore.Compressors
                 ArchiveFormat = OutArchiveFormat.SevenZip,
                 DirectoryStructure = true
             };
-            _cp.CompressionLevel = CompressionLevel.Ultra;
+            switch (compressionLevel)
+            {
+                case ConfigCompressionLevel.Ultra:
+                    _cp.CompressionLevel = CompressionLevel.Ultra;
+                    break;
+                case ConfigCompressionLevel.High:
+                    _cp.CompressionLevel = CompressionLevel.High;
+                    break;
+                case ConfigCompressionLevel.Normal:
+                    _cp.CompressionLevel = CompressionLevel.Normal;
+                    break;
+                case ConfigCompressionLevel.Low:
+                    _cp.CompressionLevel = CompressionLevel.Low;
+                    break;
+                case ConfigCompressionLevel.None:
+                    _cp.CompressionLevel = CompressionLevel.None;
+                    break;
+                default:
+                    _cp.CompressionLevel = CompressionLevel.Normal;
+                    break;
+            }
             _fn = path;
             _files = new List<string>();
         }
