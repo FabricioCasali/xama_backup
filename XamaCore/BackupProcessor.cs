@@ -17,13 +17,12 @@ namespace XamaCore
     {
         private ILogger _logger => LogManager.GetCurrentClassLogger();
         private LiteRepository _rep;
-        private ILifetimeScope _container;
         private ICompress _compressor;
 
-        public BackupProcessor(LiteRepository rep, ILifetimeScope container)
+        public BackupProcessor(LiteRepository rep, ICompress compressor)
         {
             _rep = rep;
-            _container = container;
+            _compressor = compressor;
         }
 
         /// <summary> create a unique name to the backup file </summary>
@@ -47,7 +46,7 @@ namespace XamaCore
             var compressMethod = "zip";
             if (t.Target.CompressionMethod == ConfigCompressionMethod.SevenZip)
                 compressMethod = "7zip";
-            _compressor = _container.ResolveNamed<ICompress>(compressMethod);
+            //            _compressor = _container.ResolveNamed<ICompress>(compressMethod);
             _compressor.OpenFile(outputPath, t.Target.CompressionLevel);
 
             foreach (var configPath in t.Paths)
