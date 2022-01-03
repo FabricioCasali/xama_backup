@@ -5,6 +5,10 @@ namespace XamaCore.Configs
 {
     public class ConfigApp
     {
+        public ConfigApp()
+        {
+            Tasks = new List<ConfigTask>();
+        }
         [JsonProperty("tasks")]
         public IList<ConfigTask> Tasks { get; set; }
 
