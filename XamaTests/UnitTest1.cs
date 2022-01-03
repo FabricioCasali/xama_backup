@@ -1,40 +1,38 @@
 using System;
 using System.IO;
 using Xunit;
-using Tynamix.ObjectFiller;
+using System.Collections.Generic;
+using FluentAssertions;
+using XamaCore;
+using XamaCore.Compressors;
 
 namespace XamaTests
 {
-    public class UnitTest1 : IClassFixture<TestPrepare>
+    public class BasicTests : IClassFixture<TestPrepare>
     {
         [Fact]
-        public void Test1()
+        public void Backup_CheckBackupExists()
         {
+            var config = TestPrepare.LoadConfig(Path.Combine(AppContext.BaseDirectory, "test1.json"));
+            config.Should().NotBeNull("config cannot be null");
 
-        }
-    }
+            // fix the path to the created one
+            config.Tasks[0].Paths[0].Path = TestPrepare.BasePath;
+            config.LogConfig.LogFilePath = TestPrepare.BasePath;
+            config.LogConfig.LogFilePath = "Backup_CheckBackupExists.log";
 
-    public abstract class TestPrepare : IDisposable
-    {
+            // fix the output file
+            config.Tasks[0].Target.Path = Path.GetTempPath();
+            config.Tasks[0].Target.FileName = "Backup_CheckBackupExists.zip";
 
-        protected string BasePath;
+            // TODO this is not good, i think we need to use de autofac container to do the resolve, but for now it works;
+            var bp = new BackupProcessor(TestPrepare.LiteRepository, new CompressZip());
+            var result = bp.Process(config.Tasks[0]);
+            result.Should().NotBeNull("result cannot be null");
+            result.TotalSize.Should().Be(TestPrepare.TotalSize, "total size should be the same");
+            result.NumberOfFiles.Should().Be(TestPrepare.TotalFiles, "number of files should be the same");
 
-        public TestPrepare()
-        {
-            BasePath = Path.Combine(Path.GetTempPath(), "XamaTests");
-            if (Directory.Exists(BasePath))
-                Directory.Delete(BasePath);
-            Directory.CreateDirectory(BasePath);
-
-            // create a file structure to do backup checks.
-            Randomizer<string>.Create(new Lipsum(LipsumFlavor.LoremIpsum));
-
-
-        }
-
-        public void Dispose()
-        {
-            throw new NotImplementedException();
+            var file = new FileInfo(config.Tasks[0].Target.Path);
         }
     }
 }

@@ -1,0 +1,27 @@
+{
+    "enableLog": true,
+    "logConfig": {
+        "fileName": "teste.log",
+        "path": "c:/temp/",
+        "maxSize": 50000000,
+        "maxFiles": 5,
+        "showTrace": false
+    },
+    "tasks": [
+        {
+            "name": "jobTest",
+            "paths": [
+                {
+                    "path": "",
+                    "includesSubfolders": true
+                }
+            ],
+            "target": {
+                "fileName": "ultra",
+                "path": "c:/temp/",
+                "compressionMethod": "Zip",
+                "compressionLevel": "Ultra"
+            }
+        }
+    ]
+}
