@@ -36,6 +36,10 @@ namespace XamaCore.Compressors
 
         public void OpenFile(string path, ConfigCompressionLevel compressionLevel)
         {
+            if (!Directory.Exists(Path.GetDirectoryName(path)))
+            {
+                Directory.CreateDirectory(Path.GetDirectoryName(path));
+            }
             _os = new ZipOutputStream(File.Create(path));
             var cl = 9;
             switch (compressionLevel)
