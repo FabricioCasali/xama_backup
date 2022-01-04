@@ -1,22 +1,13 @@
 using System;
 using System.IO;
+
 using Tynamix.ObjectFiller;
-using LiteDB;
-using XamaCore.Data;
-using System.Collections.Generic;
-using XamaCore;
 
 namespace XamaTests
 {
     public class TestContext : IDisposable
     {
-
-
         protected Random random;
-
-        public LiteDatabase LiteDB { get; private set; }
-
-        public LiteRepository LiteRepository { get; private set; }
 
         public int TotalFiles { get; private set; }
 
@@ -24,8 +15,6 @@ namespace XamaTests
 
         public TestContext()
         {
-            LiteDB = InitializerDb();
-            LiteRepository = new LiteRepository(LiteDB);
             random = new Random();
 
             if (Directory.Exists(TestHelpers.BasePath()))
@@ -36,19 +25,6 @@ namespace XamaTests
             // create a file structure to do backup checks.
             CreateFiles(10, TestHelpers.SourceFilesPath(), 0);
             CreateDirectory(3, TestHelpers.SourceFilesPath(), 1, true, 3, true, 10);
-        }
-
-
-        private LiteDatabase InitializerDb()
-        {
-            var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "xama.db");
-            var db = new LiteDatabase(path);
-            var mapper = BsonMapper.Global;
-            mapper.UseLowerCaseDelimiter();
-            mapper.Entity<BackupInfo>().Id(x => x.Id).DbRef(x => x.Files, "backup_file").DbRef(x => x.Problems, "backup_problem");
-            mapper.Entity<BackupFile>().Id(x => x.Id).Field(x => x.MD5, "md5");
-            mapper.Entity<BackupProblem>().Id(x => x.Id);
-            return db;
         }
 
         private void CreateDirectory(int count, string basePath, int level, bool createSubFolders = false, int subFolders = 5, bool createFiles = false, int filesCount = 100)
@@ -65,12 +41,12 @@ namespace XamaTests
 
         }
 
-        private void CreateFiles(int filesCount, string bpath, int level)
+        private void CreateFiles(int number, string basePath, int level)
         {
-            for (var i = 1; i <= filesCount; i++)
+            for (var i = 1; i <= number; i++)
             {
-                var s = Randomizer<string>.Create(new Lipsum(LipsumFlavor.LoremIpsum, random.Next(100, 10000)));
-                string path = Path.Combine(bpath, $"file_lvl_{level}_{i:000}.txt");
+                var s = Randomizer<string>.Create(new Lipsum(LipsumFlavor.LoremIpsum, random.Next(1, 100)));
+                string path = Path.Combine(basePath, $"file_lvl_{level}_{i:000}.txt");
                 File.WriteAllText(path, s);
                 TotalFiles++;
                 TotalSize += new FileInfo(path).Length;
@@ -79,7 +55,7 @@ namespace XamaTests
 
         public void Dispose()
         {
-
+            random = null;
         }
     }
 }

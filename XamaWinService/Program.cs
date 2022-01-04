@@ -1,12 +1,16 @@
 ﻿using System;
 using System.IO;
+
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+
 using NLog;
+
 using Topshelf;
 using Topshelf.Autofac;
-using XamaCore;
+
 using XamaCore.Configs;
+using XamaCore.Helpers;
 
 namespace XamaWinService
 {

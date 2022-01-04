@@ -4,55 +4,42 @@ using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
+
 using NLog;
-using LiteDB;
+
+using XamaCore.Compressors;
 using XamaCore.Configs;
 using XamaCore.Data;
-using Autofac;
-using XamaCore.Compressors;
+using XamaCore.Events;
 
 namespace XamaCore
 {
-    public class BackupProcessor
-    {
-        private ILogger _logger => LogManager.GetCurrentClassLogger();
-        private LiteRepository _rep;
-        private ICompress _compressor;
 
-        public BackupProcessor(LiteRepository rep, ICompress compressor)
+    public class BackupProcessor : IDisposable
+    {
+        public event EventHandler<FileCopiedEventArgs> FileCopied;
+        private ILogger _logger => LogManager.GetCurrentClassLogger();
+        private ICompress _compressor;
+        private BackupInfo _lastBackup;
+
+        public BackupProcessor(ICompress compressor)
         {
-            _rep = rep;
             _compressor = compressor;
         }
 
-        /// <summary> create a unique name to the backup file </summary>
-        private static string GetFileName(string basePath, string name, ConfigCompressionMethod method)
+        public BackupInfo ProcessTask(ConfigTask t)
         {
-            var extension = Path.GetExtension(name);
-            if (string.IsNullOrEmpty(extension))
-            {
-                // TODO change this to a more clean solution
-                if (method == ConfigCompressionMethod.SevenZip)
-                    extension = "7zip";
-                else
-                    extension = "zip";
-            }
-            else if (extension.StartsWith("."))
-                extension = extension.Substring(1);
-
-            var baseName = Path.GetFileNameWithoutExtension(name);
-            var fileName = Path.Combine(basePath, $"{baseName}_{DateTime.Now.ToString("yyyyMMddHHmmss")}.{extension}");
-            return fileName;
+            return ProcessTask(t, null);
         }
 
-        public BackupInfo Process(ConfigTask t)
+        /// <summary> initiate the backup process of some task </summary>
+        public BackupInfo ProcessTask(ConfigTask t, BackupInfo last)
         {
             _logger.Info($"Starting backup job for {t.Name}");
+            _lastBackup = last;
             var outputPath = GetFileName(t.Target.Path, t.Target.FileName, t.Target.CompressionMethod);
             var backupInfo = new BackupInfo();
-            _rep.Insert<BackupInfo>(backupInfo, "backup_info");
             _compressor.OpenFile(outputPath, t.Target.CompressionLevel);
-
             foreach (var configPath in t.Paths)
             {
                 _logger.Debug($"Backuping {configPath.Path}");
@@ -65,10 +52,20 @@ namespace XamaCore
             var fi = new FileInfo(outputPath);
             backupInfo.TotalCompressedSize = fi.Length;
             backupInfo.TargetFileName = fi.FullName;
-            _rep.Update<BackupInfo>(backupInfo, "backup_info");
-            _logger.Info($"Backup job for {t.Name} finished in {(backupInfo.EndedAt - backupInfo.StartedAt).TotalSeconds} seconds and stored {backupInfo.NumberOfFiles} files");
-
+            _logger.Info($"Backup job for {t.Name} finished in {(backupInfo.EndedAt - backupInfo.StartedAt).TotalSeconds} seconds and stored {backupInfo.CopiedFiles} files");
+            Clear();
             return backupInfo;
+        }
+
+        private void Clear()
+        {
+            _lastBackup = null;
+        }
+
+        /// <summary> fires the event of a new file being copied </summary>
+        protected virtual void OnFileCopied(FileCopiedEventArgs e)
+        {
+            FileCopied?.Invoke(this, e);
         }
 
         /// <summary> check the include/exclude rules and choose de right action </summary>
@@ -173,7 +170,7 @@ namespace XamaCore
                 var action = CheckActionForFile(configPath, entry);
                 if (action == FileAction.Skip)
                     continue;
-                backupInfo.NumberOfFiles++;
+
                 var bf = new BackupFile()
                 {
                     FullPath = entry.FullName,
@@ -182,9 +179,24 @@ namespace XamaCore
                     Size = new FileInfo(entry.FullName).Length,
                 };
                 bf.MD5 = CalculateChecksum(entry);
+
+                if (_lastBackup != null)
+                {
+                    var old = _lastBackup.Files.FirstOrDefault(x => x.FullPath == bf.FullPath);
+                    if (old != null)
+                    {
+                        if (bf.MD5 == old.MD5)
+                        {
+                            _logger.Trace($"Skipping {bf.FullPath} because it is the same as the last backup");
+                            continue;
+                        }
+                    }
+                }
+
                 backupInfo.Files.Add(bf);
-                _logger.Trace($"Saving info of file {bf.Name} in db");
-                _rep.Insert<BackupFile>(bf, "backup_files");
+                backupInfo.CopiedFiles++;
+                // fires the event of backup new file 
+                OnFileCopied(new FileCopiedEventArgs(bf));
                 var relativePath = entry.FullName.Substring(basePath.Length + 1);
                 _logger.Debug($"Adding {relativePath} to backup");
                 _compressor.Compress(entry.FullName, relativePath);
@@ -203,6 +215,32 @@ namespace XamaCore
                 }
             }
             return hash;
+        }
+
+
+        /// <summary> create a unique name to the backup file </summary>
+        private static string GetFileName(string basePath, string name, ConfigCompressionMethod method)
+        {
+            var extension = Path.GetExtension(name);
+            if (string.IsNullOrEmpty(extension))
+            {
+                // TODO change this to a cleaner solution
+                if (method == ConfigCompressionMethod.SevenZip)
+                    extension = "7zip";
+                else
+                    extension = "zip";
+            }
+            else if (extension.StartsWith("."))
+                extension = extension.Substring(1);
+
+            var baseName = Path.GetFileNameWithoutExtension(name);
+            var fileName = Path.Combine(basePath, $"{baseName}_{DateTime.Now.ToString("yyyyMMddHHmmss")}.{extension}");
+            return fileName;
+        }
+
+        public void Dispose()
+        {
+            Clear();
         }
     }
 }

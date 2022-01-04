@@ -16,7 +16,12 @@ namespace XamaCore.Data
         public Guid Id { get; set; }
         public DateTime StartedAt { get; set; }
         public DateTime EndedAt { get; set; }
-        public int NumberOfFiles { get; set; }
+
+        /// <summary> total amount of files in backup </summary>
+        public int CopiedFiles { get; set; }
+
+        /// <summary> total amount of files that matches the include/exclude patterns </summary>
+        public int MatchedFiles { get; set; }
         public bool HasProblems
         {
             get

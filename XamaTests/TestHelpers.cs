@@ -1,9 +1,11 @@
+using System.Collections.Generic;
 using System.IO;
-using XamaCore.Configs;
+
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.Collections.Generic;
-using XamaCore;
+
+using XamaCore.Configs;
+using XamaCore.Helpers;
 
 namespace XamaTests
 {

@@ -1,13 +1,11 @@
 {
     "dotnet-test-explorer.testProjectPath": "**/*Tests.@(csproj|vbproj|fsproj)",
-    "logViewer.watch": [
-        {
-            "title": "Xamã",
-            "pattern": "c:/temp/teste.log"
-        },
-    ],
     "cSpell.words": [
-        "Xama"
+        "Bson",
+        "Randomizer",
+        "Tynamix",
+        "Xama",
+        "Xunit"
     ],
     "cSpell.ignorePaths": [
         "app.json",
@@ -16,5 +14,5 @@
         ".git/objects",
         ".vscode",
         ".vscode-insiders"
-    ]
+    ],
 }

@@ -1,43 +1,39 @@
-using System;
-using System.IO;
-using Xunit;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+
 using FluentAssertions;
+
 using XamaCore;
 using XamaCore.Compressors;
-using System.Reflection;
 using XamaCore.Configs;
+
+using Xunit;
 
 namespace XamaTests
 {
-    public class BasicTests : IClassFixture<TestContext>
+
+    public class CoreTests : IClassFixture<TestContext>
     {
-        public BasicTests(TestContext fixture)
+        public CoreTests(TestContext fixture)
         {
-            this._fixture = fixture;
-
+            this._context = fixture;
         }
-        private TestContext _fixture;
 
-        [Fact]
-        public void Config_LoadCOnfigurationFile()
-        {
-            var config = TestHelpers.LoadConfig(Path.Combine(AppContext.BaseDirectory, "test1.json"));
-            config.Should().NotBeNull();
-        }
+        private TestContext _context;
 
         [Fact]
         public void ZipBackup_Simple()
         {
             var config = TestHelpers.BuildAndInitializeConfiguration(MethodBase.GetCurrentMethod().Name, "zip");
-
             // TODO this is not good, i think we need to use de autofac container to do the resolve, but for now it works;
-            var bp = new BackupProcessor(_fixture.LiteRepository, new CompressZip());
-            var result = bp.Process(config.Tasks[0]);
+            var bp = new BackupProcessor(new CompressZip());
+            var result = bp.ProcessTask(config.Tasks[0]);
             result.Should().NotBeNull("result cannot be null");
-            result.TotalSize.Should().Be(_fixture.TotalSize, "total size should be the same");
-            result.NumberOfFiles.Should().Be(_fixture.TotalFiles, "number of files should be the same");
-            result.TotalCompressedSize.Should().BeLessThan(_fixture.TotalSize);
+            result.TotalSize.Should().Be(_context.TotalSize, "total size should be the same");
+            result.CopiedFiles.Should().Be(_context.TotalFiles, "number of files should be the same");
+            result.TotalCompressedSize.Should().BeLessThan(_context.TotalSize);
             var file = new FileInfo(result.TargetFileName);
             file.Exists.Should().BeTrue();
         }
@@ -48,12 +44,12 @@ namespace XamaTests
             var config = TestHelpers.BuildAndInitializeConfiguration(MethodBase.GetCurrentMethod().Name, "7zip");
 
             // TODO this is not good, i think we need to use de autofac container to do the resolve, but for now it works;
-            var bp = new BackupProcessor(_fixture.LiteRepository, new Compress7zip());
-            var result = bp.Process(config.Tasks[0]);
+            var bp = new BackupProcessor(new Compress7zip());
+            var result = bp.ProcessTask(config.Tasks[0]);
             result.Should().NotBeNull("result cannot be null");
-            result.TotalSize.Should().Be(_fixture.TotalSize, "total size should be the same");
-            result.NumberOfFiles.Should().Be(_fixture.TotalFiles, "number of files should be the same");
-            result.TotalCompressedSize.Should().BeLessThan(_fixture.TotalSize);
+            result.TotalSize.Should().Be(_context.TotalSize, "total size should be the same");
+            result.CopiedFiles.Should().Be(_context.TotalFiles, "number of files should be the same");
+            result.TotalCompressedSize.Should().BeLessThan(_context.TotalSize);
             var file = new FileInfo(result.TargetFileName);
             file.Exists.Should().BeTrue();
         }
@@ -73,11 +69,11 @@ namespace XamaTests
             });
 
             // TODO this is not good, i think we need to use de autofac container to do the resolve, but for now it works;
-            var bp = new BackupProcessor(_fixture.LiteRepository, new CompressZip());
-            var result = bp.Process(config.Tasks[0]);
+            var bp = new BackupProcessor(new CompressZip());
+            var result = bp.ProcessTask(config.Tasks[0]);
             result.Should().NotBeNull("result cannot be null");
 
-            result.NumberOfFiles.Should().Be(40);
+            result.CopiedFiles.Should().Be(40);
             var file = new FileInfo(result.TargetFileName);
             file.Exists.Should().BeTrue();
         }
@@ -97,11 +93,11 @@ namespace XamaTests
             });
 
             // TODO this is not good, i think we need to use de autofac container to do the resolve, but for now it works;
-            var bp = new BackupProcessor(_fixture.LiteRepository, new CompressZip());
-            var result = bp.Process(config.Tasks[0]);
+            var bp = new BackupProcessor(new CompressZip());
+            var result = bp.ProcessTask(config.Tasks[0]);
             result.Should().NotBeNull("result cannot be null");
 
-            result.NumberOfFiles.Should().Be(360);
+            result.CopiedFiles.Should().Be(360);
             var file = new FileInfo(result.TargetFileName);
             file.Exists.Should().BeTrue();
         }
@@ -129,13 +125,37 @@ namespace XamaTests
                 PatternType = ConfigPatternTypeEnum.Wildcard
             });
             // TODO this is not good, i think we need to use de autofac container to do the resolve, but for now it works;
-            var bp = new BackupProcessor(_fixture.LiteRepository, new CompressZip());
-            var result = bp.Process(config.Tasks[0]);
+            var bp = new BackupProcessor(new CompressZip());
+            var result = bp.ProcessTask(config.Tasks[0]);
             result.Should().NotBeNull("result cannot be null");
 
-            result.NumberOfFiles.Should().Be(27);
+            result.CopiedFiles.Should().Be(27);
             var file = new FileInfo(result.TargetFileName);
             file.Exists.Should().BeTrue();
+        }
+
+        [Fact]
+        public void ZipBackup_Incremental()
+        {
+            var config = TestHelpers.BuildAndInitializeConfiguration(MethodBase.GetCurrentMethod().Name, "zip");
+            var path = config.Tasks[0].Paths[0];
+            path.Includes = new List<ConfigPattern>();
+            path.Includes.Add(new ConfigPattern()
+            {
+                Pattern = "*.*",
+                AppliesTo = ConfigPatternFileType.File,
+                Mode = ConfigPatternMode.Name,
+                PatternType = ConfigPatternTypeEnum.Wildcard
+            });
+            // TODO this is not good, i think we need to use de autofac container to do the resolve, but for now it works;
+            var firstBackup = new BackupProcessor(new CompressZip());
+            var firstResult = firstBackup.ProcessTask(config.Tasks[0]);
+            var firstFile = firstResult.Files.FirstOrDefault();
+            File.WriteAllText(firstFile.FullPath, "CHANGED FILE CONTENT");
+            var secondBackup = new BackupProcessor(new CompressZip());
+            var secondResult = secondBackup.ProcessTask(config.Tasks[0], firstResult);
+            secondBackup.Should().NotBeNull();
+            secondResult.CopiedFiles.Should().Be(1);
         }
     }
 }

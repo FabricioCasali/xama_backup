@@ -1,11 +1,11 @@
-using System.IO;
 using NLog;
 using NLog.Config;
 using NLog.Targets;
 using NLog.Targets.Wrappers;
+using System.IO;
 using XamaCore.Configs;
 
-namespace XamaCore
+namespace XamaCore.Helpers
 {
     public static class NLogInit
     {
