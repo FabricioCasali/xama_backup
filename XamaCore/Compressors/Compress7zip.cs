@@ -1,9 +1,11 @@
-using SevenZip;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+
+using SevenZip;
+
 using XamaCore.Configs;
 
 namespace XamaCore.Compressors
@@ -22,6 +24,11 @@ namespace XamaCore.Compressors
         public void Compress(string filePath, string relativePath)
         {
             _files.Add(filePath);
+        }
+
+        public string GetFileExtension()
+        {
+            return "7zip";
         }
 
         public void OpenFile(string path, ConfigCompressionLevel compressionLevel)

@@ -219,18 +219,14 @@ namespace XamaCore
 
 
         /// <summary> create a unique name to the backup file </summary>
-        private static string GetFileName(string basePath, string name, ConfigCompressionMethod method)
+        private string GetFileName(string basePath, string name, ConfigCompressionMethod method)
         {
             var extension = Path.GetExtension(name);
             if (string.IsNullOrEmpty(extension))
             {
-                // TODO change this to a cleaner solution
-                if (method == ConfigCompressionMethod.SevenZip)
-                    extension = "7zip";
-                else
-                    extension = "zip";
+                extension = _compressor.GetFileExtension();
             }
-            else if (extension.StartsWith("."))
+            if (extension.StartsWith("."))
                 extension = extension.Substring(1);
 
             var baseName = Path.GetFileNameWithoutExtension(name);

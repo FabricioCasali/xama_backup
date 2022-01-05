@@ -1,7 +1,10 @@
 using System;
 using System.IO;
+
 using ICSharpCode.SharpZipLib.Zip;
+
 using NLog;
+
 using XamaCore.Configs;
 
 namespace XamaCore.Compressors
@@ -32,6 +35,11 @@ namespace XamaCore.Compressors
 
             _os.PutNextEntry(entry);
             _os.WriteAsync(File.ReadAllBytes(filePath)).GetAwaiter().GetResult();
+        }
+
+        public string GetFileExtension()
+        {
+            return "zip";
         }
 
         public void OpenFile(string path, ConfigCompressionLevel compressionLevel)
