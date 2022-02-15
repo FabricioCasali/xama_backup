@@ -75,6 +75,10 @@ namespace XamaCore
         {
             if (configPath.Includes != null && configPath.Includes.Count > 0)
             {
+                if (fileInfo.Attributes.HasFlag(FileAttributes.Directory) && !configPath.Includes.Any(x => x.AppliesTo == ConfigPatternFileType.Directory || x.AppliesTo == ConfigPatternFileType.Both))
+                {
+                    return FileAction.Backup;
+                }
                 var keep = IsMatch(fileInfo, configPath.Includes);
                 if (!keep)
                 {
@@ -157,12 +161,17 @@ namespace XamaCore
             var entries = dirInfo.GetFileSystemInfos("*", SearchOption.TopDirectoryOnly).ToList();
             foreach (var entry in entries)
             {
+
                 if (entry.Attributes.HasFlag(FileAttributes.Directory))
                 {
                     if (!configPath.IncludeSubfolders)
                         continue;
                     else
                     {
+                        var a = CheckActionForFile(configPath, entry);
+                        if (a == FileAction.Skip)
+                            continue;
+
                         ScanFolder(configPath, entry.FullName, backupInfo, basePath);
                         continue;
                     }
@@ -170,7 +179,6 @@ namespace XamaCore
                 var action = CheckActionForFile(configPath, entry);
                 if (action == FileAction.Skip)
                     continue;
-
                 var bf = new BackupFile()
                 {
                     FullPath = entry.FullName,
@@ -178,28 +186,44 @@ namespace XamaCore
                     Name = entry.Name,
                     Size = new FileInfo(entry.FullName).Length,
                 };
-                bf.MD5 = CalculateChecksum(entry);
-
-                if (_lastBackup != null)
+                backupInfo.Files.Add(bf);
+                try
                 {
-                    var old = _lastBackup.Files.FirstOrDefault(x => x.FullPath == bf.FullPath);
-                    if (old != null)
+                    bf.MD5 = CalculateChecksum(entry);
+                    if (_lastBackup != null)
                     {
-                        if (bf.MD5 == old.MD5)
+                        var old = _lastBackup.Files.FirstOrDefault(x => x.FullPath == bf.FullPath);
+                        if (old != null)
                         {
-                            _logger.Trace($"Skipping {bf.FullPath} because it is the same as the last backup");
-                            continue;
+                            if (bf.MD5 == old.MD5)
+                            {
+                                _logger.Trace($"Skipping {bf.FullPath} because it is the same as the last backup");
+                                continue;
+                            }
                         }
                     }
-                }
 
-                backupInfo.Files.Add(bf);
-                backupInfo.CopiedFiles++;
-                // fires the event of backup new file 
-                OnFileCopied(new FileCopiedEventArgs(bf));
-                var relativePath = entry.FullName.Substring(basePath.Length + 1);
-                _logger.Debug($"Adding {relativePath} to backup");
-                _compressor.Compress(entry.FullName, relativePath);
+
+                    backupInfo.CopiedFiles++;
+                    // fires the event of backup new file 
+                    OnFileCopied(new FileCopiedEventArgs(bf));
+                    var relativePath = entry.FullName.Substring(basePath.Length);
+                    _logger.Debug($"Adding {relativePath} to backup");
+                    _compressor.Compress(entry.FullName, relativePath);
+                }
+                catch (Exception)
+                {
+                    var p = new BackupProblem()
+                    {
+                        Description = $"Error while copying {entry.FullName}",
+                        ErrorCode = 100,
+                        File = bf,
+                        IsFatalError = false
+                    };
+                    if (backupInfo.Problems == null)
+                        backupInfo.Problems = new List<BackupProblem>();
+                    backupInfo.Problems.Add(p);
+                }
             }
         }
 
@@ -209,7 +233,7 @@ namespace XamaCore
             string hash = null;
             using (var md5 = MD5.Create())
             {
-                using (var stream = File.OpenRead(f.FullName))
+                using (var stream = File.Open(f.FullName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
                 {
                     hash = BitConverter.ToString(md5.ComputeHash(stream)).Replace("-", "").ToLower();
                 }

@@ -1,8 +1,12 @@
 using System;
 using System.IO;
+
 using LiteDB;
+
 using XamaCore.Configs;
 using XamaCore.Data;
+
+using XamaWinService.Configs;
 
 namespace XamaWinService
 {
@@ -11,7 +15,8 @@ namespace XamaWinService
         public static LiteDatabase Init(ConfigApp cfg)
         {
             var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "xama.db");
-            var db = new LiteDatabase(path);
+            var cs = $"Filename={path};connection=shared";
+            var db = new LiteDatabase(cs);
             var mapper = BsonMapper.Global;
             mapper.UseLowerCaseDelimiter();
             mapper.Entity<BackupInfo>().Id(x => x.Id).DbRef(x => x.Files, "backup_file").DbRef(x => x.Problems, "backup_problem");

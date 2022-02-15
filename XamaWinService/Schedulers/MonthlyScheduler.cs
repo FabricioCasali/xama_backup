@@ -1,11 +1,18 @@
 using System;
 
 using XamaCore.Configs;
+using XamaWinService.Configs;
 
 namespace XamaWinService.Schedulers
 {
+
     public class MonthlyScheduler : Scheduler<ConfigScheduleMonthly>
     {
+        public override bool IsCron()
+        {
+            return false;
+        }
+
         public override DateTime NextRun(DateTime baseDate, ConfigScheduleMonthly config)
         {
             ValidateConfig(config);

@@ -1,7 +1,10 @@
 using System.Collections.Generic;
+
 using Newtonsoft.Json;
 
-namespace XamaCore.Configs
+using XamaCore.Configs;
+
+namespace XamaWinService.Configs
 {
     public class ConfigApp
     {

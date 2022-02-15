@@ -15,12 +15,7 @@ namespace XamaCore.Configs
         [JsonProperty("paths")]
         public IList<ConfigPath> Paths { get; set; }
 
-        [JsonProperty("globalIncludes")]
-        public IList<ConfigPattern> GlobalInclude { get; set; }
-
-        [JsonProperty("globalExcludes")]
-        public IList<ConfigPattern> GlobalExclude { get; set; }
-
+        [JsonProperty("schedules")]
         public IList<ConfigSchedule> Schedules { get; set; }
 
         [JsonProperty("target")]

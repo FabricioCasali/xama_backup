@@ -1,11 +1,17 @@
 using System;
-
+using Cronos;
 using XamaCore.Configs;
+using XamaWinService.Configs;
 
 namespace XamaWinService.Schedulers
 {
     public class RunOnceScheduler : Scheduler<ConfigScheduleOnce>
     {
+        public override bool IsCron()
+        {
+            return false;
+        }
+
         /// <summary> Theres no need to create a next schedule, so this method only returns the input date </summary>
         public override DateTime NextRun(DateTime baseDate, ConfigScheduleOnce config)
         {
@@ -17,4 +23,5 @@ namespace XamaWinService.Schedulers
         {
         }
     }
+
 }

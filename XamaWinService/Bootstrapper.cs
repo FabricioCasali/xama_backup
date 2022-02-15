@@ -12,9 +12,12 @@ using XamaCore;
 using XamaCore.Compressors;
 using XamaCore.Configs;
 
+using XamaWinService.Configs;
+using XamaWinService.Helpers;
+
 namespace XamaWinService
 {
-    static class Bootstrapper
+    public static class Bootstrapper
     {
         public static IContainer BuildContainer(ConfigApp cfg)
         {
@@ -22,11 +25,11 @@ namespace XamaWinService
             builder.RegisterType<CoreService>();
 
             var schedulerConfig = new NameValueCollection
-        {
-            { "quartz.scheduler.instanceName", "CoreScheduler" },
-            { "quartz.jobStore.type", "Quartz.Simpl.RAMJobStore, Quartz" },
-            { "quartz.threadPool.threadCount", "3" }
-        };
+            {
+                { "quartz.scheduler.instanceName", "CoreScheduler" },
+                { "quartz.jobStore.type", "Quartz.Simpl.RAMJobStore, Quartz" },
+                { "quartz.threadPool.threadCount", "3" }
+            };
 
             builder.RegisterModule(new QuartzAutofacFactoryModule
             {
@@ -34,8 +37,8 @@ namespace XamaWinService
             });
             var db = LiteDBINit.Init(cfg);
             var lr = new LiteRepository(db);
-            builder.RegisterInstance<LiteDatabase>(db).SingleInstance();
-            builder.RegisterInstance<LiteRepository>(lr).SingleInstance();
+            builder.RegisterInstance<LiteDatabase>(db).SingleInstance().AsSelf().As<ILiteDatabase>();
+            builder.RegisterInstance<LiteRepository>(lr).SingleInstance().AsSelf().As<ILiteRepository>();
             builder.RegisterModule(new QuartzAutofacJobsModule(typeof(BackupJob).Assembly));
             builder.Register<ConfigApp>(c => cfg).SingleInstance();
             builder.RegisterType<CompressZip>().Named<ICompress>(ConfigCompressionMethod.Zip.ToString());
@@ -49,7 +52,15 @@ namespace XamaWinService
                     return ctx.ResolveNamed<ICompress>(p.Value.ToString());
                 }));
 
+            var types = TypeHelper.GetTypesExtending<Schedulers.IScheduler>(true, true);
+            foreach (var t in types)
+            {
+                builder.RegisterType(t).Named(t.BaseType.GenericTypeArguments[0].Name, typeof(Schedulers.IScheduler));
+            }
+
+            builder.RegisterType<ScheduleConverter>().AsSelf();
             var container = builder.Build();
+
             return container;
         }
     }

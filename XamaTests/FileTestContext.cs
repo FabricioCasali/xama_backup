@@ -5,7 +5,7 @@ using Tynamix.ObjectFiller;
 
 namespace XamaTests
 {
-    public class TestContext : IDisposable
+    public class FileTestContext : IDisposable
     {
         protected Random random;
 
@@ -13,7 +13,7 @@ namespace XamaTests
 
         public Int64 TotalSize { get; private set; }
 
-        public TestContext()
+        public FileTestContext()
         {
             random = new Random();
 

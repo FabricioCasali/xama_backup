@@ -6,8 +6,20 @@ namespace XamaWinService.Schedulers
 {
     public abstract class Scheduler<T> : IScheduler<T> where T : ConfigSchedule
     {
+        public abstract bool IsCron();
         public abstract DateTime NextRun(DateTime baseDate, T config);
+
+        public DateTime NextRun(DateTime baseDate, object config)
+        {
+            return NextRun(baseDate, (T)config);
+        }
+
         public abstract void ValidateConfig(T config);
+
+        public void ValidateConfig(object config)
+        {
+            ValidateConfig((T)config);
+        }
 
         protected virtual void ValidateTime(string t)
         {

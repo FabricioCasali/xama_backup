@@ -5,7 +5,9 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
 using XamaCore.Configs;
-using XamaCore.Helpers;
+
+using XamaWinService.Configs;
+using XamaWinService.Helpers;
 
 namespace XamaTests
 {
@@ -24,7 +26,7 @@ namespace XamaTests
             var cfg = BuildConfiguration(testName, extension, generateLog);
             if (generateLog)
             {
-                NLogInit.Configure(cfg);
+                NLogInit.Configure(cfg.LogConfig);
             }
             return cfg;
         }

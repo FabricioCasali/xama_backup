@@ -1,4 +1,6 @@
-namespace XamaCore.Configs
+using XamaCore.Configs;
+
+namespace XamaWinService.Configs
 {
     public class ConfigScheduleWeekly : ConfigSchedule
     {

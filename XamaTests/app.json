@@ -9,10 +9,10 @@
     },
     "tasks": [
         {
-            "name": "testbackup",
+            "name": "jobTest",
             "paths": [
                 {
-                    "path": "c:/Desenv/",
+                    "path": "c:/Desenv",
                     "includesSubfolders": true,
                     "excludes": [
                         {
@@ -25,11 +25,6 @@
                         },
                         {
                             "pattern": "node_modules",
-                            "appliesTo": "Directory",
-                            "mode": "Name"
-                        },
-                        {
-                            "pattern": "com.savvion.studio",
                             "appliesTo": "Directory"
                         },
                         {
@@ -45,15 +40,6 @@
                             "appliesTo": "Directory"
                         },
                         {
-                            "pattern": "\\$tf",
-                            "type": "Regex ",
-                            "appliesTo": "Directory"
-                        },
-                        {
-                            "pattern": "old_but_gold",
-                            "appliesTo": "Directory"
-                        },
-                        {
                             "pattern": ".*"
                         },
                         {
@@ -65,8 +51,13 @@
             ],
             "schedules": [
                 {
-                    "type": "ConfigScheduleCron",
-                    "cronExpression": "0 0/1 * 1/1 * ? *"
+                    "type": "ConfigScheduleDaily",
+                    "time": "12:00:00"
+                },
+                {
+                    "type": "ConfigScheduleMonthly",
+                    "time": "12:00:00",
+                    "day": 15
                 }
             ],
             "target": {

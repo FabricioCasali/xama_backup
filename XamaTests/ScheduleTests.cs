@@ -2,8 +2,7 @@ using System;
 
 using FluentAssertions;
 
-using XamaCore.Configs;
-
+using XamaWinService.Configs;
 using XamaWinService.Schedulers;
 
 using Xunit;
@@ -16,7 +15,7 @@ namespace XamaTests
         public void Schedule_Daily()
         {
             var scheduler = new DailyScheduler();
-            var baseDate = new DateTime(2022, 1, 1);
+            var baseDate = new DateTime(2022, 1, 1, 12, 0, 0);
             scheduler.NextRun(baseDate, new ConfigScheduleDaily() { Time = "12:00:00" }).Should().Be(new DateTime(2022, 1, 2, 12, 0, 0));
         }
 

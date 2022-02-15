@@ -1,11 +1,17 @@
 using System;
 
 using XamaCore.Configs;
+using XamaWinService.Configs;
 
 namespace XamaWinService.Schedulers
 {
     public class YearlyScheduler : Scheduler<ConfigScheduleYearly>
     {
+        public override bool IsCron()
+        {
+            return false;
+        }
+
         public override DateTime NextRun(DateTime baseDate, ConfigScheduleYearly config)
         {
             ValidateConfig(config);

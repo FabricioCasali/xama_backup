@@ -1,17 +1,19 @@
+using System.IO;
+
 using NLog;
 using NLog.Config;
 using NLog.Targets;
 using NLog.Targets.Wrappers;
-using System.IO;
-using XamaCore.Configs;
 
-namespace XamaCore.Helpers
+using XamaWinService.Configs;
+
+namespace XamaWinService.Helpers
 {
     public static class NLogInit
     {
-        public static void Configure(ConfigApp ca)
+        public static void Configure(ConfigLog log)
         {
-            if (ca.LogConfig == null)
+            if (log == null)
                 return;
 
             if (LogManager.Configuration != null)
@@ -23,14 +25,14 @@ namespace XamaCore.Helpers
             var console = new ColoredConsoleTarget("logconsole");
             var logFile = new FileTarget("logfile")
             {
-                FileName = Path.Combine(ca.LogConfig.LogFilePath, ca.LogConfig.LogFileName),
-                MaxArchiveFiles = ca.LogConfig.MaxArchiveFiles,
-                ArchiveAboveSize = ca.LogConfig.MaxLogSize
+                FileName = Path.Combine(log.LogFilePath, log.LogFileName),
+                MaxArchiveFiles = log.MaxArchiveFiles,
+                ArchiveAboveSize = log.MaxLogSize
             };
-
             var wrapper = new AsyncTargetWrapper(logFile, 5000, AsyncTargetWrapperOverflowAction.Discard);
-            config.AddRule(ca.LogConfig.ShowTrace ? NLog.LogLevel.Trace : NLog.LogLevel.Debug, NLog.LogLevel.Fatal, wrapper);
-            config.AddRule(ca.LogConfig.ShowTrace ? NLog.LogLevel.Trace : NLog.LogLevel.Debug, NLog.LogLevel.Fatal, console);
+
+            config.AddRule(log.ShowTrace ? NLog.LogLevel.Trace : NLog.LogLevel.Debug, NLog.LogLevel.Fatal, console);
+            config.AddRule(log.ShowTrace ? NLog.LogLevel.Trace : NLog.LogLevel.Debug, NLog.LogLevel.Fatal, wrapper);
             LogManager.Configuration = config;
         }
 

@@ -14,14 +14,14 @@ using Xunit;
 namespace XamaTests
 {
 
-    public class CoreTests : IClassFixture<TestContext>
+    public class CoreTests : IClassFixture<FileTestContext>
     {
-        public CoreTests(TestContext fixture)
+        public CoreTests(FileTestContext fixture)
         {
             this._context = fixture;
         }
 
-        private TestContext _context;
+        private FileTestContext _context;
 
         [Fact]
         public void ZipBackup_Simple()

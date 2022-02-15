@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace XamaCore.Configs
+namespace XamaWinService.Configs
 {
     public class ConfigLog
     {
