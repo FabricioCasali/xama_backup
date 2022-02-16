@@ -1,7 +1,7 @@
 {
     "enableLog": true,
     "logConfig": {
-        "fileName": "teste.log",
+        "fileName": "xama.log",
         "path": "c:/temp/",
         "maxSize": 50000000,
         "maxFiles": 5,
@@ -10,9 +10,10 @@
     "tasks": [
         {
             "name": "testbackup",
+            "type": "Differential",
             "paths": [
                 {
-                    "path": "c:/Desenv/",
+                    "path": "c:/Desenv/xama_backup",
                     "includesSubfolders": true,
                     "excludes": [
                         {
@@ -65,15 +66,18 @@
             ],
             "schedules": [
                 {
-                    "type": "ConfigScheduleCron",
-                    "cronExpression": "0 0/1 * 1/1 * ? *"
+                    "type": "ConfigScheduleOnStartUp"
                 }
             ],
             "target": {
-                "fileName": "ultra",
-                "path": "c:/temp/",
-                "compressionMethod": "Zip",
-                "compressionLevel": "Ultra"
+                "fileName": "xama_backup",
+                "path": "C:/Users/fabri/OneDrive/Documentos/backups/dev",
+                "compressionMethod": "SevenZip",
+                "compressionLevel": "Ultra",
+                "retention": {
+                    "fullCopiesToKeep": 2,
+                    "makeFullCopieEvery": 6
+                }
             }
         }
     ]

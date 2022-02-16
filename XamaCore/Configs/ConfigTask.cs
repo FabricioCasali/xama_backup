@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+
 using Newtonsoft.Json;
 
 namespace XamaCore.Configs
@@ -21,5 +22,7 @@ namespace XamaCore.Configs
         [JsonProperty("target")]
         public ConfigTarget Target { get; set; }
 
+        [JsonProperty("type")]
+        public ConfigTaskTypeEnum TaskType { get; set; }
     }
 }

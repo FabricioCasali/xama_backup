@@ -29,32 +29,45 @@ namespace XamaCore
 
         public BackupInfo ProcessTask(ConfigTask t)
         {
-            return ProcessTask(t, null);
+            return ProcessTask(t, null, BackupType.Complete);
         }
 
         /// <summary> initiate the backup process of some task </summary>
-        public BackupInfo ProcessTask(ConfigTask t, BackupInfo last)
+        /// <param name="task">the task to be processed</param>
+        /// <param name="lastInfo">the last backup of the task</param>
+        /// <param name="type">the type of the next backup</param>
+        public BackupInfo ProcessTask(ConfigTask task, BackupInfo lastInfo, BackupType type)
         {
-            _logger.Info($"Starting backup job for {t.Name}");
-            _lastBackup = last;
-            var outputPath = GetFileName(t.Target.Path, t.Target.FileName, t.Target.CompressionMethod);
-            var backupInfo = new BackupInfo();
-            _compressor.OpenFile(outputPath, t.Target.CompressionLevel);
-            foreach (var configPath in t.Paths)
+            try
             {
-                _logger.Debug($"Backuping {configPath.Path}");
-                var basePath = Path.GetFullPath(configPath.Path);
-                ScanFolder(configPath, basePath, backupInfo, basePath);
+
+                _logger.Info($"Starting backup job for {task.Name}");
+                _lastBackup = lastInfo;
+                var outputPath = BackupFileHelper.GetFileName(task.Target.Path, task.Target.FileName, _compressor.GetFileExtension(), task.TaskType, type);
+                var backupInfo = new BackupInfo();
+                _compressor.OpenFile(outputPath, task.Target.CompressionLevel);
+                foreach (var configPath in task.Paths)
+                {
+                    _logger.Debug($"Backuping {configPath.Path}");
+                    var basePath = Path.GetFullPath(configPath.Path);
+                    ScanFolder(configPath, basePath, backupInfo, basePath);
+                }
+                _compressor.Close();
+                backupInfo.EndedAt = DateTime.Now;
+                backupInfo.TotalSize = backupInfo.Files.Sum(x => x.Size);
+                var fi = new FileInfo(outputPath);
+                backupInfo.TotalCompressedSize = fi.Length;
+                backupInfo.TargetFullPath = fi.FullName;
+                backupInfo.TargetFileName = fi.Name;
+                _logger.Info($"Backup job for {task.Name} finished in {(backupInfo.EndedAt - backupInfo.StartedAt).TotalSeconds} seconds and stored {backupInfo.CopiedFiles} files");
+                Clear();
+                return backupInfo;
             }
-            _compressor.Close();
-            backupInfo.EndedAt = DateTime.Now;
-            backupInfo.TotalSize = backupInfo.Files.Sum(x => x.Size);
-            var fi = new FileInfo(outputPath);
-            backupInfo.TotalCompressedSize = fi.Length;
-            backupInfo.TargetFileName = fi.FullName;
-            _logger.Info($"Backup job for {t.Name} finished in {(backupInfo.EndedAt - backupInfo.StartedAt).TotalSeconds} seconds and stored {backupInfo.CopiedFiles} files");
-            Clear();
-            return backupInfo;
+            catch (Exception e)
+            {
+                _logger.Error(e);
+                throw;
+            }
         }
 
         private void Clear()
@@ -154,7 +167,7 @@ namespace XamaCore
             return isMatch;
         }
 
-        /// <summary> scan folder for file and directories and check if it should participate in the backup </summary>
+        /// <summary> scan folder for file and directories and check if it should participate in the backup     </summary>
         private void ScanFolder(ConfigPath configPath, string path, BackupInfo backupInfo, string basePath)
         {
             var dirInfo = new DirectoryInfo(path);
@@ -242,21 +255,7 @@ namespace XamaCore
         }
 
 
-        /// <summary> create a unique name to the backup file </summary>
-        private string GetFileName(string basePath, string name, ConfigCompressionMethod method)
-        {
-            var extension = Path.GetExtension(name);
-            if (string.IsNullOrEmpty(extension))
-            {
-                extension = _compressor.GetFileExtension();
-            }
-            if (extension.StartsWith("."))
-                extension = extension.Substring(1);
 
-            var baseName = Path.GetFileNameWithoutExtension(name);
-            var fileName = Path.Combine(basePath, $"{baseName}_{DateTime.Now.ToString("yyyyMMddHHmmss")}.{extension}");
-            return fileName;
-        }
 
         public void Dispose()
         {

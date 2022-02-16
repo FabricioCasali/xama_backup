@@ -3,8 +3,11 @@ using System.IO;
 
 using Tynamix.ObjectFiller;
 
+using XamaCore;
+
 namespace XamaTests
 {
+
     public class FileTestContext : IDisposable
     {
         protected Random random;
@@ -17,11 +20,20 @@ namespace XamaTests
         {
             random = new Random();
 
-            if (Directory.Exists(TestHelpers.BasePath()))
+            if (Directory.Exists(TestHelpers.SourceFilesPath()))
             {
-                Directory.Delete(TestHelpers.BasePath(), true);
+                Directory.Delete(TestHelpers.SourceFilesPath(), true);
             }
 
+            if (Directory.Exists(TestHelpers.TargetPath()))
+            {
+                Directory.Delete(TestHelpers.TargetPath(), true);
+            }
+
+            if (Directory.Exists(TestHelpers.LogsPath()))
+            {
+                Directory.Delete(TestHelpers.LogsPath(), true);
+            }
             // create a file structure to do backup checks.
             CreateFiles(10, TestHelpers.SourceFilesPath(), 0);
             CreateDirectory(3, TestHelpers.SourceFilesPath(), 1, true, 3, true, 10);
