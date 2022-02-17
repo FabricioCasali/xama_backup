@@ -31,11 +31,6 @@ jobs:
       run: dotnet build --no-restore XamaWinService
     - name: Build Tests
       run: dotnet build --no-restore XamaTests
-  tests:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest]
-    steps:
-      - name: Test
-        run: dotnet test --no-build --verbosity normal XamaTests
+    - name: Test
+      run: dotnet test --no-build --verbosity normal XamaTests      
+
