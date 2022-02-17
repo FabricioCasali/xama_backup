@@ -3,7 +3,6 @@ using System.IO;
 
 using LiteDB;
 
-using XamaCore.Configs;
 using XamaCore.Data;
 
 using XamaWinService.Configs;

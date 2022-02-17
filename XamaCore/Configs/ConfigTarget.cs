@@ -20,5 +20,9 @@ namespace XamaCore.Configs
 
         [JsonProperty("compressionLevel")]
         public ConfigCompressionLevel CompressionLevel { get; set; }
+
+        [JsonProperty("retention")]
+        public ConfigRetention Retention { get; set; }
     }
+
 }

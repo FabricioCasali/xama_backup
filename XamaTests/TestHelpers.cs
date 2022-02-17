@@ -1,9 +1,11 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
+using XamaCore;
 using XamaCore.Configs;
 
 using XamaWinService.Configs;
@@ -29,6 +31,26 @@ namespace XamaTests
                 NLogInit.Configure(cfg.LogConfig);
             }
             return cfg;
+        }
+
+        public static void PrepareRetention(string fileName, int totalFile = 21, int completeEvery = 6)
+        {
+            var basePath = TestHelpers.RetentionPath();
+            var date = new DateTime(2022, 1, 1);
+
+            for (var i = 0; i < totalFile; i++)
+            {
+                if (i == 0 || i % (completeEvery + 1) == 0)
+                {
+                    var complete = BackupFileHelper.GetFileName(basePath, fileName, "zip", date.AddDays(i), ConfigTaskTypeEnum.Complete, BackupType.Complete);
+                    File.WriteAllText(complete, "test");
+                }
+                else
+                {
+                    var n = BackupFileHelper.GetFileName(basePath, fileName, "zip", date.AddDays(i), ConfigTaskTypeEnum.Complete, BackupType.Partial);
+                    File.WriteAllText(n, "test");
+                }
+            }
         }
 
         public static ConfigApp BuildConfiguration(string testName, string extension, bool generateLog = true)
@@ -70,6 +92,15 @@ namespace XamaTests
             };
             return cfg;
         }
+
+        public static string RetentionPath()
+        {
+            if (!Directory.Exists(Path.Combine(BasePath(), "retention")))
+                Directory.CreateDirectory(Path.Combine(BasePath(), "retention"));
+
+            return Path.Combine(BasePath(), "retention");
+        }
+
         public static string TargetPath()
         {
             if (!Directory.Exists(Path.Combine(BasePath(), "target")))

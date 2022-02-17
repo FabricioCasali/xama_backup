@@ -16,9 +16,9 @@ namespace XamaTests
 
     public class CoreTests : IClassFixture<FileTestContext>
     {
-        public CoreTests(FileTestContext fixture)
+        public CoreTests(FileTestContext c)
         {
-            this._context = fixture;
+            this._context = c;
         }
 
         private FileTestContext _context;
@@ -34,7 +34,7 @@ namespace XamaTests
             result.TotalSize.Should().Be(_context.TotalSize, "total size should be the same");
             result.CopiedFiles.Should().Be(_context.TotalFiles, "number of files should be the same");
             result.TotalCompressedSize.Should().BeLessThan(_context.TotalSize);
-            var file = new FileInfo(result.TargetFileName);
+            var file = new FileInfo(result.TargetFullPath);
             file.Exists.Should().BeTrue();
         }
 
@@ -50,7 +50,7 @@ namespace XamaTests
             result.TotalSize.Should().Be(_context.TotalSize, "total size should be the same");
             result.CopiedFiles.Should().Be(_context.TotalFiles, "number of files should be the same");
             result.TotalCompressedSize.Should().BeLessThan(_context.TotalSize);
-            var file = new FileInfo(result.TargetFileName);
+            var file = new FileInfo(result.TargetFullPath);
             file.Exists.Should().BeTrue();
         }
 
@@ -74,7 +74,7 @@ namespace XamaTests
             result.Should().NotBeNull("result cannot be null");
 
             result.CopiedFiles.Should().Be(40);
-            var file = new FileInfo(result.TargetFileName);
+            var file = new FileInfo(result.TargetFullPath);
             file.Exists.Should().BeTrue();
         }
 
@@ -98,7 +98,7 @@ namespace XamaTests
             result.Should().NotBeNull("result cannot be null");
 
             result.CopiedFiles.Should().Be(360);
-            var file = new FileInfo(result.TargetFileName);
+            var file = new FileInfo(result.TargetFullPath);
             file.Exists.Should().BeTrue();
         }
 
@@ -130,7 +130,7 @@ namespace XamaTests
             result.Should().NotBeNull("result cannot be null");
 
             result.CopiedFiles.Should().Be(27);
-            var file = new FileInfo(result.TargetFileName);
+            var file = new FileInfo(result.TargetFullPath);
             file.Exists.Should().BeTrue();
         }
 
@@ -153,7 +153,7 @@ namespace XamaTests
             var firstFile = firstResult.Files.FirstOrDefault();
             File.WriteAllText(firstFile.FullPath, "CHANGED FILE CONTENT");
             var secondBackup = new BackupProcessor(new CompressZip());
-            var secondResult = secondBackup.ProcessTask(config.Tasks[0], firstResult);
+            var secondResult = secondBackup.ProcessTask(config.Tasks[0], firstResult, BackupType.Partial);
             secondBackup.Should().NotBeNull();
             secondResult.CopiedFiles.Should().Be(1);
         }

@@ -6,7 +6,6 @@ using Common.Logging;
 using Topshelf;
 using Topshelf.Autofac;
 
-using XamaWinService.Configs;
 using XamaWinService.Helpers;
 
 namespace XamaWinService

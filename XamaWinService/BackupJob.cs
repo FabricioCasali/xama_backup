@@ -23,10 +23,13 @@ namespace XamaWinService
         private ILifetimeScope _scope;
         private ILiteRepository _repository;
 
-        public BackupJob(ILifetimeScope scope, ILiteRepository repository)
+        private ILiteDatabase _db;
+
+        public BackupJob(ILifetimeScope scope, ILiteRepository repository, ILiteDatabase db)
         {
             _scope = scope;
             _repository = repository;
+            _db = db;
         }
 
         public Task Execute(IJobExecutionContext context)
@@ -35,7 +38,31 @@ namespace XamaWinService
             var task = data["task"] as ConfigTask;
             var processor = _scope.Resolve<BackupProcessor>(new NamedParameter("compress", task.Target.CompressionMethod.ToString()));
             processor.FileCopied += HandleFileCopied;
-            var result = processor.ProcessTask(task);
+
+            BackupInfo result;
+            BackupInfo comparison = null;
+            BackupType nextType = BackupType.Complete;
+
+            if (task.Target.Retention != null)
+            {
+                var fn = task.Target.FileName;
+                var fr = new BackupFileHelper(task.Target.Path, task.Target.FileName, task.Target.Retention.NumberOfFullCopies, task.Target.Retention.FullCopieEvery);
+                fr.CheckPath();
+                fr.ClearPath();
+                nextType = fr.NextBackupShouldBe();
+                BackupArchiveDetail last = null;
+                if (nextType != BackupType.Complete)
+                {
+                    if (task.TaskType == ConfigTaskTypeEnum.Differential)
+                        last = fr.GetLastFull();
+                    else if (task.TaskType == ConfigTaskTypeEnum.Incremental)
+                        last = fr.GetLast();
+                    comparison = _repository.Query<BackupInfo>("backup_info").Include(x => x.Files).Where(x => x.TargetFileName == last.Info.Name).FirstOrDefault();
+                }
+
+            }
+            result = processor.ProcessTask(task, comparison, nextType);
+
             _repository.Insert<BackupInfo>(result, "backup_info");
             return Task.CompletedTask;
         }

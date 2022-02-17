@@ -1,6 +1,5 @@
 using System;
-using Cronos;
-using XamaCore.Configs;
+
 using XamaWinService.Configs;
 
 namespace XamaWinService.Schedulers

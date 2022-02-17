@@ -51,20 +51,18 @@
             ],
             "schedules": [
                 {
-                    "type": "ConfigScheduleDaily",
-                    "time": "12:00:00"
-                },
-                {
-                    "type": "ConfigScheduleMonthly",
-                    "time": "12:00:00",
-                    "day": 15
+                    "type": "ConfigScheduleOnStartUp"
                 }
             ],
             "target": {
-                "fileName": "ultra",
-                "path": "c:/temp/",
-                "compressionMethod": "Zip",
-                "compressionLevel": "Ultra"
+                "fileName": "xama_backup",
+                "path": "C:/Users/fabri/OneDrive/Documentos/backups/dev",
+                "compressionMethod": "SevenZip",
+                "compressionLevel": "Ultra",
+                "retention": {
+                    "fullCopiesToKeep": "5",
+                    "makeFullCopieEvery": 7
+                }
             }
         }
     ]

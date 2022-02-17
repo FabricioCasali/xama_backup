@@ -1,6 +1,6 @@
-using System.Globalization;
 using System;
 using System.Linq;
+using System.Threading;
 
 using Autofac;
 
@@ -9,9 +9,9 @@ using NLog;
 using Quartz;
 using Quartz.Impl.Matchers;
 
-using XamaWinService.Configs;
-using System.Threading;
 using Topshelf;
+
+using XamaWinService.Configs;
 
 namespace XamaWinService
 {
@@ -34,7 +34,10 @@ namespace XamaWinService
 
         public bool Start(HostControl hostControl)
         {
-            _logger.Info("Service started");
+            _logger.Info("Service started and ready to work");
+
+            _logger.Info("Reading tasks from configuration file and creating the schedules");
+
             foreach (var task in _appConfig.Tasks.Where(x => x.Schedules != null && x.Schedules.Count > 0))
             {
                 var jobData = new JobDataMap();
@@ -74,6 +77,7 @@ namespace XamaWinService
             return true;
         }
 
+        /// <summary> stop the service </summary>
         public bool Stop(HostControl hostControl)
         {
             _scheduler.Shutdown().ConfigureAwait(false).GetAwaiter().GetResult();
