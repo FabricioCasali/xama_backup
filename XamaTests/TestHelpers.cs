@@ -42,12 +42,12 @@ namespace XamaTests
             {
                 if (i == 0 || i % (completeEvery + 1) == 0)
                 {
-                    var complete = BackupFileHelper.GetFileName(basePath, fileName, "zip", date.AddDays(i), ConfigTaskTypeEnum.Complete, BackupType.Complete);
+                    var complete = BackupFileHelper.GetFileName(basePath, fileName, "zip", date.AddDays(i), ConfigTaskTypeEnum.Differential, BackupType.Complete);
                     File.WriteAllText(complete, "test");
                 }
                 else
                 {
-                    var n = BackupFileHelper.GetFileName(basePath, fileName, "zip", date.AddDays(i), ConfigTaskTypeEnum.Complete, BackupType.Partial);
+                    var n = BackupFileHelper.GetFileName(basePath, fileName, "zip", date.AddDays(i), ConfigTaskTypeEnum.Differential, BackupType.Partial);
                     File.WriteAllText(n, "test");
                 }
             }

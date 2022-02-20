@@ -109,7 +109,7 @@ namespace XamaCore
         {
             var di = new DirectoryInfo(_path);
             var fs = di.GetFileSystemInfos($"{_name}*");
-            foreach (var f in fs)
+            foreach (var f in fs.OrderBy(x => x.Name))
             {
                 var time = f.Name.Substring(_name.Length + 1, 14);
                 var type = f.Name.Substring(_name.Length + 16, 4);

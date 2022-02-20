@@ -2,13 +2,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-
+using System.Runtime.InteropServices;
 using FluentAssertions;
-
 using XamaCore;
 using XamaCore.Compressors;
 using XamaCore.Configs;
-
 using Xunit;
 
 namespace XamaTests
@@ -41,6 +39,10 @@ namespace XamaTests
         [Fact]
         public void SevenZipBackup_Simple()
         {
+            if (!System.Runtime.InteropServices.RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                return;
+            }
             var config = TestHelpers.BuildAndInitializeConfiguration(MethodBase.GetCurrentMethod().Name, "7zip");
 
             // TODO this is not good, i think we need to use de autofac container to do the resolve, but for now it works;
