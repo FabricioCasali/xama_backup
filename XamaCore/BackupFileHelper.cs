@@ -12,12 +12,10 @@ namespace XamaCore
         public const string FULL_BACKUP = "full";
         public const string DIFFERENTIAL_BACKUP = "diff";
         public const string INCREMENTAL_BACKUP = "incr";
-
         private string _path;
         private string _name;
         private int _full = 0;
         private int _part = 0;
-
         private int _partSinceLastFull = 0;
         private int _completeToKeep = 0;
         private int _partialToKeep = 0;

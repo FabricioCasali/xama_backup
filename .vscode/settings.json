@@ -15,4 +15,5 @@
         ".vscode",
         ".vscode-insiders"
     ],
+    "coverage-gutters.coverageBaseDir": "XamaTests",
 }
