@@ -57,7 +57,6 @@ namespace XamaCore
             return _files.Values.LastOrDefault();
         }
 
-
         /// <summary>
         /// builds the file name
         /// </summary>

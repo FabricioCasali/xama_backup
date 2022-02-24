@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+
 using Newtonsoft.Json;
 
 namespace XamaCore.Configs
@@ -26,7 +27,5 @@ namespace XamaCore.Configs
         [Obsolete("Not implemented yet", true)]
         [JsonProperty("useShadowCopy")]
         public bool UseVolumeShadowCopy { get; set; }
-
-
     }
 }

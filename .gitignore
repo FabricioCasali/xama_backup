@@ -441,7 +441,7 @@ $RECYCLE.BIN/
 *.lnk
 
 # JetBrains Rider
-.idea/
+.idea/ 
 *.sln.iml
 
 ##
@@ -455,3 +455,4 @@ $RECYCLE.BIN/
 
 ## extensions
 .lh
+XamaTests/lcov.info

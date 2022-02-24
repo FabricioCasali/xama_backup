@@ -16,9 +16,23 @@ namespace XamaCore.Compressors
         private string _fn;
         private IList<string> _files;
 
+        private string _dummyFile = null;
+
         public void Close()
         {
+            if (_files == null || _files.Count == 0)
+            {
+                var dir = Path.GetDirectoryName(_fn);
+                var dummyPath = Path.Combine(dir, "nothing.here");
+                _dummyFile = dummyPath;
+                File.WriteAllText(dummyPath, "");
+                Compress(dummyPath, dir);
+            }
             _cp.CompressFiles(_fn, _files.ToArray());
+            if (_dummyFile != null)
+            {
+                File.Delete(_dummyFile);
+            }
         }
 
         public void Compress(string filePath, string relativePath)

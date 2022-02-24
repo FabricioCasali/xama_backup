@@ -3,10 +3,13 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
+
 using FluentAssertions;
+
 using XamaCore;
 using XamaCore.Compressors;
 using XamaCore.Configs;
+
 using Xunit;
 
 namespace XamaTests
@@ -52,6 +55,30 @@ namespace XamaTests
             result.TotalSize.Should().Be(_context.TotalSize, "total size should be the same");
             result.CopiedFiles.Should().Be(_context.TotalFiles, "number of files should be the same");
             result.TotalCompressedSize.Should().BeLessThan(_context.TotalSize);
+            var file = new FileInfo(result.TargetFullPath);
+            file.Exists.Should().BeTrue();
+        }
+
+
+        [Fact]
+        public void SevenZipBackup_No_File_Dummy()
+        {
+            if (!System.Runtime.InteropServices.RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                return;
+            }
+            var config = TestHelpers.BuildAndInitializeConfiguration(MethodBase.GetCurrentMethod().Name, "7zip");
+            var pattern = new ConfigPattern()
+            {
+                Pattern = "*.*",
+                PatternType = ConfigPatternTypeEnum.Wildcard,
+                AppliesTo = ConfigPatternFileType.Both,
+            };
+            config.Tasks[0].Paths[0].Excludes = new List<ConfigPattern>() { pattern };
+            var bp = new BackupProcessor(new Compress7zip());
+            var result = bp.ProcessTask(config.Tasks[0]);
+            result.Should().NotBeNull("result cannot be null");
+            result.CopiedFiles.Should().Be(0, "number of files should be the same");
             var file = new FileInfo(result.TargetFullPath);
             file.Exists.Should().BeTrue();
         }
