@@ -43,7 +43,6 @@ namespace XamaWinService
                 p.SetServiceName("XamaCoreService");
                 p.StartAutomatically();
                 p.RunAsLocalSystem();
-
             });
         }
     }

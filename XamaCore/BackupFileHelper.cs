@@ -108,6 +108,10 @@ namespace XamaCore
             var fs = di.GetFileSystemInfos($"{_name}*");
             foreach (var f in fs.OrderBy(x => x.Name))
             {
+                if (f.Attributes.HasFlag(FileAttributes.Directory))
+                {
+                    continue;
+                }
                 var time = f.Name.Substring(_name.Length + 1, 14);
                 var type = f.Name.Substring(_name.Length + 16, 4);
 

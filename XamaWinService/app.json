@@ -13,7 +13,7 @@
             "type": "Differential",
             "paths": [
                 {
-                    "path": "c:/Desenv/xama_backup",
+                    "path": "c:/Desenv/",
                     "includesSubfolders": true,
                     "excludes": [
                         {

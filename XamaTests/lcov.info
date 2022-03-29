@@ -1,388 +1,388 @@
 SF:c:\Desenv\xama_backup\XamaCore\BackupArchiveDetail.cs
 FN:18,System.IO.FileSystemInfo XamaCore.BackupArchiveDetail::get_Info()
-FNDA:749,System.IO.FileSystemInfo XamaCore.BackupArchiveDetail::get_Info()
-DA:19,749
+FNDA:0,System.IO.FileSystemInfo XamaCore.BackupArchiveDetail::get_Info()
+DA:19,0
 FN:20,XamaCore.BackupType XamaCore.BackupArchiveDetail::get_BackupType()
-FNDA:209,XamaCore.BackupType XamaCore.BackupArchiveDetail::get_BackupType()
-DA:21,209
+FNDA:0,XamaCore.BackupType XamaCore.BackupArchiveDetail::get_BackupType()
+DA:21,0
 FN:7,System.Void XamaCore.BackupArchiveDetail::.ctor()
 FNDA:0,System.Void XamaCore.BackupArchiveDetail::.ctor()
 DA:8,0
 DA:9,0
 DA:11,0
 FN:12,System.Void XamaCore.BackupArchiveDetail::.ctor(System.IO.FileSystemInfo,XamaCore.BackupType)
-FNDA:101,System.Void XamaCore.BackupArchiveDetail::.ctor(System.IO.FileSystemInfo,XamaCore.BackupType)
-DA:13,101
-DA:14,101
-DA:15,101
-DA:16,101
-DA:17,101
+FNDA:0,System.Void XamaCore.BackupArchiveDetail::.ctor(System.IO.FileSystemInfo,XamaCore.BackupType)
+DA:13,0
+DA:14,0
+DA:15,0
+DA:16,0
+DA:17,0
 LF:10
-LH:7
+LH:0
 BRF:0
 BRH:0
 FNF:4
-FNH:3
+FNH:0
 end_of_record
 SF:c:\Desenv\xama_backup\XamaCore\BackupFileHelper.cs
-FN:48,XamaCore.BackupArchiveDetail XamaCore.BackupFileHelper::GetLastFull()
+FN:46,XamaCore.BackupArchiveDetail XamaCore.BackupFileHelper::GetLastFull()
 FNDA:0,XamaCore.BackupArchiveDetail XamaCore.BackupFileHelper::GetLastFull()
+DA:47,0
+DA:48,0
 DA:49,0
-DA:50,0
-DA:51,0
-FN:57,XamaCore.BackupArchiveDetail XamaCore.BackupFileHelper::GetLast()
+FN:55,XamaCore.BackupArchiveDetail XamaCore.BackupFileHelper::GetLast()
 FNDA:0,XamaCore.BackupArchiveDetail XamaCore.BackupFileHelper::GetLast()
+DA:56,0
+DA:57,0
 DA:58,0
-DA:59,0
-DA:60,0
-FN:72,System.String XamaCore.BackupFileHelper::GetFileName(System.String,System.String,System.String,XamaCore.Configs.ConfigTaskTypeEnum,XamaCore.BackupType)
-FNDA:7,System.String XamaCore.BackupFileHelper::GetFileName(System.String,System.String,System.String,XamaCore.Configs.ConfigTaskTypeEnum,XamaCore.BackupType)
-DA:73,7
-DA:74,7
-DA:75,7
-FN:79,System.String XamaCore.BackupFileHelper::GetFileName(System.String,System.String,System.String,System.DateTime,XamaCore.Configs.ConfigTaskTypeEnum,XamaCore.BackupType)
-FNDA:108,System.String XamaCore.BackupFileHelper::GetFileName(System.String,System.String,System.String,System.DateTime,XamaCore.Configs.ConfigTaskTypeEnum,XamaCore.BackupType)
-DA:80,108
-DA:81,108
-DA:82,108
-DA:83,108
-DA:84,108
-DA:85,108
-DA:86,108
+FN:69,System.String XamaCore.BackupFileHelper::GetFileName(System.String,System.String,System.String,XamaCore.Configs.ConfigTaskTypeEnum,XamaCore.BackupType)
+FNDA:0,System.String XamaCore.BackupFileHelper::GetFileName(System.String,System.String,System.String,XamaCore.Configs.ConfigTaskTypeEnum,XamaCore.BackupType)
+DA:70,0
+DA:71,0
+DA:72,0
+FN:76,System.String XamaCore.BackupFileHelper::GetFileName(System.String,System.String,System.String,System.DateTime,XamaCore.Configs.ConfigTaskTypeEnum,XamaCore.BackupType)
+FNDA:0,System.String XamaCore.BackupFileHelper::GetFileName(System.String,System.String,System.String,System.DateTime,XamaCore.Configs.ConfigTaskTypeEnum,XamaCore.BackupType)
+DA:77,0
+DA:78,0
+DA:79,0
+DA:80,0
+DA:81,0
+DA:82,0
+DA:83,0
+DA:84,0
+DA:86,0
 DA:87,0
-DA:89,108
-DA:90,108
-DA:91,108
-DA:92,42
-DA:93,42
-DA:94,42
-DA:95,66
+DA:88,0
+DA:89,0
+DA:90,0
+DA:91,0
+DA:92,0
+DA:93,0
+DA:94,0
+DA:95,0
 DA:96,0
 DA:97,0
 DA:98,0
-DA:99,66
-DA:100,65
-DA:101,65
-DA:102,65
-DA:103,108
-DA:104,108
-DA:105,108
-BRDA:82,21,0,108
-BRDA:82,21,1,108
-BRDA:86,42,0,0
-BRDA:86,42,1,108
-BRDA:91,74,0,42
-BRDA:91,74,1,66
-BRDA:95,95,0,0
-BRDA:95,95,1,66
-BRDA:99,116,0,65
-BRDA:99,116,1,108
-FN:108,System.Void XamaCore.BackupFileHelper::CheckPath()
-FNDA:4,System.Void XamaCore.BackupFileHelper::CheckPath()
-DA:109,4
-DA:110,4
-DA:111,4
-DA:112,315
-DA:113,101
-DA:114,101
-DA:115,101
-DA:117,101
-DA:118,36
-DA:119,36
-DA:120,36
-DA:121,36
-DA:122,36
-DA:124,65
-DA:125,65
-DA:126,65
-DA:127,65
-DA:128,65
-DA:129,101
-DA:130,4
-DA:131,4
-BRDA:112,296,1,101
-BRDA:117,166,0,36
-BRDA:117,166,1,65
-BRDA:112,296,0,4
-FN:133,System.Void XamaCore.BackupFileHelper::CheckFilesToRemove()
-FNDA:4,System.Void XamaCore.BackupFileHelper::CheckFilesToRemove()
-DA:134,4
-DA:136,4
-DA:137,4
-DA:138,4
-DA:139,51
-DA:141,65
-DA:143,126
-DA:144,134
-DA:145,61
-DA:146,61
-DA:147,61
-DA:148,4
-DA:149,4
-BRDA:136,17,0,4
-BRDA:144,274,1,61
-BRDA:144,274,0,4
-BRDA:136,17,1,4
-FN:155,XamaCore.BackupType XamaCore.BackupFileHelper::NextBackupShouldBe()
-FNDA:4,XamaCore.BackupType XamaCore.BackupFileHelper::NextBackupShouldBe()
-DA:156,4
-DA:157,4
+DA:99,0
+DA:100,0
+DA:101,0
+DA:102,0
+BRDA:79,21,0,0
+BRDA:79,21,1,0
+BRDA:83,42,0,0
+BRDA:83,42,1,0
+BRDA:88,74,0,0
+BRDA:88,74,1,0
+BRDA:92,95,0,0
+BRDA:92,95,1,0
+BRDA:96,116,0,0
+BRDA:96,116,1,0
+FN:105,System.Void XamaCore.BackupFileHelper::CheckPath()
+FNDA:0,System.Void XamaCore.BackupFileHelper::CheckPath()
+DA:106,0
+DA:107,0
+DA:108,0
+DA:109,0
+DA:110,0
+DA:111,0
+DA:112,0
+DA:114,0
+DA:115,0
+DA:116,0
+DA:117,0
+DA:118,0
+DA:119,0
+DA:121,0
+DA:122,0
+DA:123,0
+DA:124,0
+DA:125,0
+DA:126,0
+DA:127,0
+DA:128,0
+BRDA:109,296,1,0
+BRDA:114,166,0,0
+BRDA:114,166,1,0
+BRDA:109,296,0,0
+FN:130,System.Void XamaCore.BackupFileHelper::CheckFilesToRemove()
+FNDA:0,System.Void XamaCore.BackupFileHelper::CheckFilesToRemove()
+DA:131,0
+DA:133,0
+DA:134,0
+DA:135,0
+DA:136,0
+DA:138,0
+DA:140,0
+DA:141,0
+DA:142,0
+DA:143,0
+DA:144,0
+DA:145,0
+DA:146,0
+BRDA:133,17,0,0
+BRDA:141,274,1,0
+BRDA:141,274,0,0
+BRDA:133,17,1,0
+FN:152,XamaCore.BackupType XamaCore.BackupFileHelper::NextBackupShouldBe()
+FNDA:0,XamaCore.BackupType XamaCore.BackupFileHelper::NextBackupShouldBe()
+DA:153,0
+DA:154,0
+DA:155,0
+DA:157,0
 DA:158,0
-DA:160,4
-DA:161,3
-DA:163,1
-DA:164,4
-BRDA:157,12,0,0
-BRDA:157,12,1,4
-BRDA:160,37,0,3
-BRDA:160,37,1,1
-FN:170,System.Void XamaCore.BackupFileHelper::ClearPath()
-FNDA:4,System.Void XamaCore.BackupFileHelper::ClearPath()
-DA:171,4
-DA:172,134
-DA:173,61
-DA:174,61
-DA:175,61
-DA:176,4
-BRDA:172,56,1,61
-BRDA:172,56,0,4
-FN:183,System.Collections.Generic.IList`1<System.IO.FileSystemInfo> XamaCore.BackupFileHelper::FilesToRemove()
-FNDA:12,System.Collections.Generic.IList`1<System.IO.FileSystemInfo> XamaCore.BackupFileHelper::FilesToRemove()
-DA:184,12
-DA:185,195
-DA:186,12
-FN:192,System.Collections.Generic.IList`1<System.IO.FileSystemInfo> XamaCore.BackupFileHelper::Files()
-FNDA:16,System.Collections.Generic.IList`1<System.IO.FileSystemInfo> XamaCore.BackupFileHelper::Files()
-DA:193,16
-DA:194,420
-DA:195,16
-FN:17,System.Void XamaCore.BackupFileHelper::.ctor(System.String,System.String,System.Int32,System.Int32)
-FNDA:4,System.Void XamaCore.BackupFileHelper::.ctor(System.String,System.String,System.Int32,System.Int32)
-DA:18,4
-DA:19,4
-DA:21,4
-DA:22,4
-DA:23,4
-DA:34,4
-DA:35,4
-DA:36,4
-DA:37,4
-DA:38,4
-DA:39,4
-DA:40,4
-DA:41,4
-DA:42,4
+DA:160,0
+DA:161,0
+BRDA:154,12,0,0
+BRDA:154,12,1,0
+BRDA:157,37,0,0
+BRDA:157,37,1,0
+FN:167,System.Void XamaCore.BackupFileHelper::ClearPath()
+FNDA:0,System.Void XamaCore.BackupFileHelper::ClearPath()
+DA:168,0
+DA:169,0
+DA:170,0
+DA:171,0
+DA:172,0
+DA:173,0
+BRDA:169,56,1,0
+BRDA:169,56,0,0
+FN:180,System.Collections.Generic.IList`1<System.IO.FileSystemInfo> XamaCore.BackupFileHelper::FilesToRemove()
+FNDA:0,System.Collections.Generic.IList`1<System.IO.FileSystemInfo> XamaCore.BackupFileHelper::FilesToRemove()
+DA:181,0
+DA:182,0
+DA:183,0
+FN:189,System.Collections.Generic.IList`1<System.IO.FileSystemInfo> XamaCore.BackupFileHelper::Files()
+FNDA:0,System.Collections.Generic.IList`1<System.IO.FileSystemInfo> XamaCore.BackupFileHelper::Files()
+DA:190,0
+DA:191,0
+DA:192,0
+FN:16,System.Void XamaCore.BackupFileHelper::.ctor(System.String,System.String,System.Int32,System.Int32)
+FNDA:0,System.Void XamaCore.BackupFileHelper::.ctor(System.String,System.String,System.Int32,System.Int32)
+DA:17,0
+DA:18,0
+DA:19,0
+DA:20,0
+DA:21,0
+DA:32,0
+DA:33,0
+DA:34,0
+DA:35,0
+DA:36,0
+DA:37,0
+DA:38,0
+DA:39,0
+DA:40,0
 LF:101
-LH:90
+LH:0
 BRF:24
-BRH:21
+BRH:0
 FNF:11
-FNH:9
+FNH:0
 end_of_record
 SF:c:\Desenv\xama_backup\XamaCore\BackupProcessor.cs
 FN:20,NLog.ILogger XamaCore.BackupProcessor::get__logger()
-FNDA:3691,NLog.ILogger XamaCore.BackupProcessor::get__logger()
-DA:21,3691
+FNDA:0,NLog.ILogger XamaCore.BackupProcessor::get__logger()
+DA:21,0
 FN:30,XamaCore.Data.BackupInfo XamaCore.BackupProcessor::ProcessTask(XamaCore.Configs.ConfigTask)
-FNDA:6,XamaCore.Data.BackupInfo XamaCore.BackupProcessor::ProcessTask(XamaCore.Configs.ConfigTask)
-DA:31,6
-DA:32,6
-DA:33,6
+FNDA:0,XamaCore.Data.BackupInfo XamaCore.BackupProcessor::ProcessTask(XamaCore.Configs.ConfigTask)
+DA:31,0
+DA:32,0
+DA:33,0
 FN:39,XamaCore.Data.BackupInfo XamaCore.BackupProcessor::ProcessTask(XamaCore.Configs.ConfigTask,XamaCore.Data.BackupInfo,XamaCore.BackupType)
-FNDA:7,XamaCore.Data.BackupInfo XamaCore.BackupProcessor::ProcessTask(XamaCore.Configs.ConfigTask,XamaCore.Data.BackupInfo,XamaCore.BackupType)
-DA:40,7
-DA:42,7
-DA:44,7
-DA:45,7
-DA:46,7
-DA:47,7
-DA:48,7
-DA:49,35
-DA:50,7
-DA:51,7
-DA:52,7
-DA:53,7
-DA:54,7
-DA:55,7
-DA:56,7
-DA:57,2034
-DA:58,7
-DA:59,7
-DA:60,7
-DA:61,7
-DA:62,7
-DA:63,7
-DA:64,7
+FNDA:0,XamaCore.Data.BackupInfo XamaCore.BackupProcessor::ProcessTask(XamaCore.Configs.ConfigTask,XamaCore.Data.BackupInfo,XamaCore.BackupType)
+DA:40,0
+DA:42,0
+DA:44,0
+DA:45,0
+DA:46,0
+DA:47,0
+DA:48,0
+DA:49,0
+DA:50,0
+DA:51,0
+DA:52,0
+DA:53,0
+DA:54,0
+DA:55,0
+DA:56,0
+DA:57,0
+DA:58,0
+DA:59,0
+DA:60,0
+DA:61,0
+DA:62,0
+DA:63,0
+DA:64,0
 DA:66,0
 DA:67,0
 DA:68,0
 DA:69,0
-DA:71,7
-BRDA:49,201,1,7
-BRDA:49,201,0,7
+DA:71,0
+BRDA:49,201,1,0
+BRDA:49,201,0,0
 FN:73,System.Void XamaCore.BackupProcessor::Clear()
-FNDA:7,System.Void XamaCore.BackupProcessor::Clear()
-DA:74,7
-DA:75,7
-DA:76,7
+FNDA:0,System.Void XamaCore.BackupProcessor::Clear()
+DA:74,0
+DA:75,0
+DA:76,0
 FN:79,System.Void XamaCore.BackupProcessor::OnFileCopied(XamaCore.Events.FileCopiedEventArgs)
-FNDA:1628,System.Void XamaCore.BackupProcessor::OnFileCopied(XamaCore.Events.FileCopiedEventArgs)
-DA:80,1628
-DA:81,1628
-DA:82,1628
-BRDA:81,8,0,1628
+FNDA:0,System.Void XamaCore.BackupProcessor::OnFileCopied(XamaCore.Events.FileCopiedEventArgs)
+DA:80,0
+DA:81,0
+DA:82,0
+BRDA:81,8,0,0
 BRDA:81,8,1,0
 FN:87,XamaCore.FileAction XamaCore.BackupProcessor::CheckActionForFile(XamaCore.Configs.ConfigPath,System.IO.FileSystemInfo)
-FNDA:3073,XamaCore.FileAction XamaCore.BackupProcessor::CheckActionForFile(XamaCore.Configs.ConfigPath,System.IO.FileSystemInfo)
-DA:88,3073
-DA:89,3073
-DA:90,1756
-DA:91,1912
-DA:92,156
-DA:93,156
-DA:95,1600
-DA:96,1600
-DA:97,730
-DA:98,730
-DA:99,730
-DA:102,870
-DA:103,870
-DA:104,870
-DA:105,870
-DA:107,2187
-DA:108,469
-DA:109,469
-DA:110,469
-DA:111,43
-DA:112,43
-DA:113,43
-DA:115,426
-DA:117,2144
-DA:118,3073
-BRDA:89,7,0,1756
-BRDA:89,7,1,1317
-BRDA:89,28,0,1756
-BRDA:91,57,0,156
-BRDA:91,57,1,1600
-BRDA:91,109,0,156
-BRDA:91,109,1,1600
-BRDA:96,140,0,730
-BRDA:96,140,1,870
-BRDA:89,28,1,2187
-BRDA:107,225,0,469
-BRDA:107,225,1,1718
-BRDA:107,248,0,469
-BRDA:110,271,0,43
-BRDA:110,271,1,426
-BRDA:107,248,1,2144
-BRDA:91,7,0,156
+FNDA:0,XamaCore.FileAction XamaCore.BackupProcessor::CheckActionForFile(XamaCore.Configs.ConfigPath,System.IO.FileSystemInfo)
+DA:88,0
+DA:89,0
+DA:90,0
+DA:91,0
+DA:92,0
+DA:93,0
+DA:95,0
+DA:96,0
+DA:97,0
+DA:98,0
+DA:99,0
+DA:102,0
+DA:103,0
+DA:104,0
+DA:105,0
+DA:107,0
+DA:108,0
+DA:109,0
+DA:110,0
+DA:111,0
+DA:112,0
+DA:113,0
+DA:115,0
+DA:117,0
+DA:118,0
+BRDA:89,7,0,0
+BRDA:89,7,1,0
+BRDA:89,28,0,0
+BRDA:91,57,0,0
+BRDA:91,57,1,0
+BRDA:91,109,0,0
+BRDA:91,109,1,0
+BRDA:96,140,0,0
+BRDA:96,140,1,0
+BRDA:89,28,1,0
+BRDA:107,225,0,0
+BRDA:107,225,1,0
+BRDA:107,248,0,0
+BRDA:110,271,0,0
+BRDA:110,271,1,0
+BRDA:107,248,1,0
+BRDA:91,7,0,0
 BRDA:91,7,1,0
 FN:121,System.String XamaCore.BackupProcessor::WildCardToRegex(System.String)
-FNDA:2030,System.String XamaCore.BackupProcessor::WildCardToRegex(System.String)
-DA:122,2030
-DA:123,2030
-DA:124,2030
+FNDA:0,System.String XamaCore.BackupProcessor::WildCardToRegex(System.String)
+DA:122,0
+DA:123,0
+DA:124,0
 FN:127,System.Boolean XamaCore.BackupProcessor::IsMatch(System.IO.FileSystemInfo,System.Collections.Generic.IList`1<XamaCore.Configs.ConfigPattern>)
-FNDA:2069,System.Boolean XamaCore.BackupProcessor::IsMatch(System.IO.FileSystemInfo,System.Collections.Generic.IList`1<XamaCore.Configs.ConfigPattern>)
-DA:128,2069
-DA:129,2069
-DA:130,9432
-DA:131,2069
-DA:132,2069
-DA:133,2069
-DA:134,2069
-DA:135,2069
-DA:136,39
-DA:137,2030
-DA:140,2030
-DA:141,2030
-DA:142,2030
-DA:143,2030
+FNDA:0,System.Boolean XamaCore.BackupProcessor::IsMatch(System.IO.FileSystemInfo,System.Collections.Generic.IList`1<XamaCore.Configs.ConfigPattern>)
+DA:128,0
+DA:129,0
+DA:130,0
+DA:131,0
+DA:132,0
+DA:133,0
+DA:134,0
+DA:135,0
+DA:136,0
+DA:137,0
+DA:140,0
+DA:141,0
+DA:142,0
+DA:143,0
 DA:145,0
 DA:146,0
 DA:147,0
-DA:148,2030
-DA:149,2030
-DA:152,2030
-DA:153,2030
+DA:148,0
+DA:149,0
+DA:152,0
+DA:153,0
 DA:155,0
 DA:156,0
 DA:158,0
 DA:159,0
-DA:161,2030
-DA:162,2030
-DA:163,913
-DA:164,913
-DA:166,1117
-DA:167,2069
-DA:168,2069
-BRDA:130,285,1,2069
-BRDA:132,37,0,2069
-BRDA:134,47,0,2069
-BRDA:134,47,1,2030
-BRDA:134,72,0,2030
+DA:161,0
+DA:162,0
+DA:163,0
+DA:164,0
+DA:166,0
+DA:167,0
+DA:168,0
+BRDA:130,285,1,0
+BRDA:132,37,0,0
+BRDA:134,47,0,0
+BRDA:134,47,1,0
+BRDA:134,72,0,0
 BRDA:134,81,0,0
-BRDA:134,81,1,2030
-BRDA:134,72,1,39
-BRDA:134,119,1,2030
-BRDA:132,37,1,2030
-BRDA:140,140,0,2030
+BRDA:134,81,1,0
+BRDA:134,72,1,0
+BRDA:134,119,1,0
+BRDA:132,37,1,0
+BRDA:140,140,0,0
 BRDA:140,140,1,0
-BRDA:149,200,1,2030
+BRDA:149,200,1,0
 BRDA:149,200,2,0
 BRDA:149,200,3,0
-BRDA:149,200,0,2030
-BRDA:162,273,0,913
-BRDA:162,273,1,1117
-BRDA:134,119,0,3225
-BRDA:130,285,0,2069
+BRDA:149,200,0,0
+BRDA:162,273,0,0
+BRDA:162,273,1,0
+BRDA:134,119,0,0
+BRDA:130,285,0,0
 FN:171,System.Void XamaCore.BackupProcessor::ScanFolder(XamaCore.Configs.ConfigPath,System.String,XamaCore.Data.BackupInfo,System.String)
-FNDA:280,System.Void XamaCore.BackupProcessor::ScanFolder(XamaCore.Configs.ConfigPath,System.String,XamaCore.Data.BackupInfo,System.String)
-DA:172,280
-DA:173,280
-DA:174,280
-DA:175,6986
-DA:176,3073
-DA:178,3073
-DA:179,273
-DA:180,273
+FNDA:0,System.Void XamaCore.BackupProcessor::ScanFolder(XamaCore.Configs.ConfigPath,System.String,XamaCore.Data.BackupInfo,System.String)
+DA:172,0
+DA:173,0
+DA:174,0
+DA:175,0
+DA:176,0
+DA:178,0
+DA:179,0
+DA:180,0
 DA:181,0
-DA:183,273
-DA:184,273
-DA:185,273
+DA:183,0
+DA:184,0
+DA:185,0
 DA:186,0
-DA:188,273
-DA:189,273
-DA:192,2800
-DA:193,2800
-DA:194,773
-DA:195,2027
-DA:196,2027
-DA:197,2027
-DA:198,2027
-DA:199,2027
-DA:200,2027
-DA:201,2027
-DA:202,2027
-DA:204,2027
-DA:205,2027
-DA:206,2027
-DA:207,400
-DA:208,80600
-DA:209,400
-DA:210,400
-DA:211,400
-DA:212,399
-DA:213,399
-DA:214,399
-DA:216,1
-DA:217,1
-DA:220,1628
-DA:222,1628
-DA:223,1628
-DA:224,1628
-DA:225,1628
-DA:226,1628
+DA:188,0
+DA:189,0
+DA:192,0
+DA:193,0
+DA:194,0
+DA:195,0
+DA:196,0
+DA:197,0
+DA:198,0
+DA:199,0
+DA:200,0
+DA:201,0
+DA:202,0
+DA:204,0
+DA:205,0
+DA:206,0
+DA:207,0
+DA:208,0
+DA:209,0
+DA:210,0
+DA:211,0
+DA:212,0
+DA:213,0
+DA:214,0
+DA:216,0
+DA:217,0
+DA:220,0
+DA:222,0
+DA:223,0
+DA:224,0
+DA:225,0
+DA:226,0
 DA:227,0
 DA:228,0
 DA:229,0
@@ -396,61 +396,61 @@ DA:236,0
 DA:237,0
 DA:238,0
 DA:239,0
-DA:240,1628
-DA:241,280
-BRDA:175,654,1,3073
-BRDA:178,82,0,273
-BRDA:180,98,1,273
-BRDA:185,125,1,273
-BRDA:178,82,1,2800
-BRDA:193,173,1,2027
-BRDA:206,306,0,400
-BRDA:209,349,0,400
-BRDA:211,380,0,399
-BRDA:211,380,1,1
-BRDA:209,349,1,1
-BRDA:206,306,1,1628
+DA:240,0
+DA:241,0
+BRDA:175,654,1,0
+BRDA:178,82,0,0
+BRDA:180,98,1,0
+BRDA:185,125,1,0
+BRDA:178,82,1,0
+BRDA:193,173,1,0
+BRDA:206,306,0,0
+BRDA:209,349,0,0
+BRDA:211,380,0,0
+BRDA:211,380,1,0
+BRDA:209,349,1,0
+BRDA:206,306,1,0
 BRDA:236,615,0,0
 BRDA:236,615,1,0
-BRDA:180,98,0,3353
-BRDA:185,125,0,3353
-BRDA:193,173,0,3353
-BRDA:175,654,0,280
+BRDA:180,98,0,0
+BRDA:185,125,0,0
+BRDA:193,173,0,0
+BRDA:175,654,0,0
 FN:244,System.String XamaCore.BackupProcessor::CalculateChecksum(System.IO.FileSystemInfo)
-FNDA:2027,System.String XamaCore.BackupProcessor::CalculateChecksum(System.IO.FileSystemInfo)
-DA:245,2027
-DA:246,2027
-DA:247,2027
-DA:248,2027
-DA:249,2027
-DA:250,2027
-DA:251,2027
-DA:252,2027
-DA:253,2027
-DA:254,2027
-DA:255,2027
+FNDA:0,System.String XamaCore.BackupProcessor::CalculateChecksum(System.IO.FileSystemInfo)
+DA:245,0
+DA:246,0
+DA:247,0
+DA:248,0
+DA:249,0
+DA:250,0
+DA:251,0
+DA:252,0
+DA:253,0
+DA:254,0
+DA:255,0
 FN:260,System.Void XamaCore.BackupProcessor::Dispose()
 FNDA:0,System.Void XamaCore.BackupProcessor::Dispose()
 DA:261,0
 DA:262,0
 DA:263,0
 FN:24,System.Void XamaCore.BackupProcessor::.ctor(XamaCore.Compressors.ICompress)
-FNDA:7,System.Void XamaCore.BackupProcessor::.ctor(XamaCore.Compressors.ICompress)
-DA:25,7
-DA:26,7
-DA:27,7
-DA:28,7
+FNDA:0,System.Void XamaCore.BackupProcessor::.ctor(XamaCore.Compressors.ICompress)
+DA:25,0
+DA:26,0
+DA:27,0
+DA:28,0
 LF:176
-LH:147
+LH:0
 BRF:60
-BRH:52
+BRH:0
 FNF:12
-FNH:11
+FNH:0
 end_of_record
-SF:c:\Desenv\xama_backup\XamaCore\Interceptors\FileActionInterceptor.cs
-FN:14,System.String XamaCore.Interceptors.FileActionEventArgs::get_FileName()
+SF:c:\Desenv\xama_backup\XamaCore\Interceptors\FileActionEventArgs.cs
+FN:6,System.String XamaCore.Interceptors.FileActionEventArgs::get_FileName()
 FNDA:0,System.String XamaCore.Interceptors.FileActionEventArgs::get_FileName()
-DA:15,0
+DA:7,0
 LF:1
 LH:0
 BRF:0
@@ -460,74 +460,74 @@ FNH:0
 end_of_record
 SF:c:\Desenv\xama_backup\XamaCore\Events\FileCopiedEventArgs.cs
 FN:16,XamaCore.Data.BackupFile XamaCore.Events.FileCopiedEventArgs::get_File()
-FNDA:1628,XamaCore.Data.BackupFile XamaCore.Events.FileCopiedEventArgs::get_File()
-DA:17,1628
+FNDA:0,XamaCore.Data.BackupFile XamaCore.Events.FileCopiedEventArgs::get_File()
+DA:17,0
 FN:8,System.Void XamaCore.Events.FileCopiedEventArgs::.ctor()
 FNDA:0,System.Void XamaCore.Events.FileCopiedEventArgs::.ctor()
 DA:9,0
 DA:10,0
 DA:12,0
 FN:12,System.Void XamaCore.Events.FileCopiedEventArgs::.ctor(XamaCore.Data.BackupFile)
-FNDA:1628,System.Void XamaCore.Events.FileCopiedEventArgs::.ctor(XamaCore.Data.BackupFile)
-DA:13,1628
-DA:14,1628
-DA:15,1628
-DA:16,1628
+FNDA:0,System.Void XamaCore.Events.FileCopiedEventArgs::.ctor(XamaCore.Data.BackupFile)
+DA:13,0
+DA:14,0
+DA:15,0
+DA:16,0
 LF:8
-LH:5
+LH:0
 BRF:0
 BRH:0
 FNF:3
-FNH:2
+FNH:0
 end_of_record
 SF:c:\Desenv\xama_backup\XamaCore\Data\BackupFile.cs
 FN:11,System.Guid XamaCore.Data.BackupFile::get_Id()
-FNDA:2027,System.Guid XamaCore.Data.BackupFile::get_Id()
-DA:12,2027
+FNDA:0,System.Guid XamaCore.Data.BackupFile::get_Id()
+DA:12,0
 FN:12,System.String XamaCore.Data.BackupFile::get_Name()
-FNDA:2027,System.String XamaCore.Data.BackupFile::get_Name()
-DA:13,2027
+FNDA:0,System.String XamaCore.Data.BackupFile::get_Name()
+DA:13,0
 FN:14,System.Int64 XamaCore.Data.BackupFile::get_Size()
-FNDA:4054,System.Int64 XamaCore.Data.BackupFile::get_Size()
-DA:15,4054
+FNDA:0,System.Int64 XamaCore.Data.BackupFile::get_Size()
+DA:15,0
 FN:16,System.String XamaCore.Data.BackupFile::get_MD5()
-FNDA:2827,System.String XamaCore.Data.BackupFile::get_MD5()
-DA:17,2827
+FNDA:0,System.String XamaCore.Data.BackupFile::get_MD5()
+DA:17,0
 FN:18,System.String XamaCore.Data.BackupFile::get_FullPath()
-FNDA:162827,System.String XamaCore.Data.BackupFile::get_FullPath()
-DA:19,162827
+FNDA:0,System.String XamaCore.Data.BackupFile::get_FullPath()
+DA:19,0
 FN:20,System.DateTime XamaCore.Data.BackupFile::get_LastChanged()
-FNDA:2027,System.DateTime XamaCore.Data.BackupFile::get_LastChanged()
-DA:21,2027
+FNDA:0,System.DateTime XamaCore.Data.BackupFile::get_LastChanged()
+DA:21,0
 FN:22,System.DateTime XamaCore.Data.BackupFile::get_CreationDate()
 FNDA:0,System.DateTime XamaCore.Data.BackupFile::get_CreationDate()
 DA:23,0
 FN:6,System.Void XamaCore.Data.BackupFile::.ctor()
-FNDA:2027,System.Void XamaCore.Data.BackupFile::.ctor()
-DA:7,2027
-DA:8,2027
-DA:9,2027
-DA:10,2027
+FNDA:0,System.Void XamaCore.Data.BackupFile::.ctor()
+DA:7,0
+DA:8,0
+DA:9,0
+DA:10,0
 LF:11
-LH:10
+LH:0
 BRF:0
 BRH:0
 FNF:8
-FNH:7
+FNH:0
 end_of_record
 SF:c:\Desenv\xama_backup\XamaCore\Data\BackupInfo.cs
 FN:16,System.Guid XamaCore.Data.BackupInfo::get_Id()
-FNDA:7,System.Guid XamaCore.Data.BackupInfo::get_Id()
-DA:17,7
+FNDA:0,System.Guid XamaCore.Data.BackupInfo::get_Id()
+DA:17,0
 FN:19,System.DateTime XamaCore.Data.BackupInfo::get_StartedAt()
-FNDA:14,System.DateTime XamaCore.Data.BackupInfo::get_StartedAt()
-DA:20,14
+FNDA:0,System.DateTime XamaCore.Data.BackupInfo::get_StartedAt()
+DA:20,0
 FN:22,System.DateTime XamaCore.Data.BackupInfo::get_EndedAt()
-FNDA:14,System.DateTime XamaCore.Data.BackupInfo::get_EndedAt()
-DA:23,14
+FNDA:0,System.DateTime XamaCore.Data.BackupInfo::get_EndedAt()
+DA:23,0
 FN:25,System.Int32 XamaCore.Data.BackupInfo::get_CopiedFiles()
-FNDA:3269,System.Int32 XamaCore.Data.BackupInfo::get_CopiedFiles()
-DA:26,3269
+FNDA:0,System.Int32 XamaCore.Data.BackupInfo::get_CopiedFiles()
+DA:26,0
 FN:28,System.Int32 XamaCore.Data.BackupInfo::get_MatchedFiles()
 FNDA:0,System.Int32 XamaCore.Data.BackupInfo::get_MatchedFiles()
 DA:29,0
@@ -537,38 +537,38 @@ DA:35,0
 DA:36,0
 DA:37,0
 FN:40,System.Collections.Generic.IList`1<XamaCore.Data.BackupFile> XamaCore.Data.BackupInfo::get_Files()
-FNDA:2442,System.Collections.Generic.IList`1<XamaCore.Data.BackupFile> XamaCore.Data.BackupInfo::get_Files()
-DA:41,2442
+FNDA:0,System.Collections.Generic.IList`1<XamaCore.Data.BackupFile> XamaCore.Data.BackupInfo::get_Files()
+DA:41,0
 FN:43,System.Collections.Generic.IList`1<XamaCore.Data.BackupProblem> XamaCore.Data.BackupInfo::get_Problems()
-FNDA:7,System.Collections.Generic.IList`1<XamaCore.Data.BackupProblem> XamaCore.Data.BackupInfo::get_Problems()
-DA:44,7
+FNDA:0,System.Collections.Generic.IList`1<XamaCore.Data.BackupProblem> XamaCore.Data.BackupInfo::get_Problems()
+DA:44,0
 FN:46,System.String XamaCore.Data.BackupInfo::get_TargetFullPath()
-FNDA:12,System.String XamaCore.Data.BackupInfo::get_TargetFullPath()
-DA:47,12
+FNDA:0,System.String XamaCore.Data.BackupInfo::get_TargetFullPath()
+DA:47,0
 FN:52,System.String XamaCore.Data.BackupInfo::get_TargetFileName()
-FNDA:7,System.String XamaCore.Data.BackupInfo::get_TargetFileName()
-DA:53,7
+FNDA:0,System.String XamaCore.Data.BackupInfo::get_TargetFileName()
+DA:53,0
 FN:56,System.Int64 XamaCore.Data.BackupInfo::get_TotalSize()
-FNDA:9,System.Int64 XamaCore.Data.BackupInfo::get_TotalSize()
-DA:57,9
+FNDA:0,System.Int64 XamaCore.Data.BackupInfo::get_TotalSize()
+DA:57,0
 FN:59,System.Int64 XamaCore.Data.BackupInfo::get_TotalCompressedSize()
-FNDA:9,System.Int64 XamaCore.Data.BackupInfo::get_TotalCompressedSize()
-DA:60,9
+FNDA:0,System.Int64 XamaCore.Data.BackupInfo::get_TotalCompressedSize()
+DA:60,0
 FN:7,System.Void XamaCore.Data.BackupInfo::.ctor()
-FNDA:7,System.Void XamaCore.Data.BackupInfo::.ctor()
-DA:8,7
-DA:9,7
-DA:10,7
-DA:11,7
-DA:12,7
-DA:13,7
-DA:14,7
+FNDA:0,System.Void XamaCore.Data.BackupInfo::.ctor()
+DA:8,0
+DA:9,0
+DA:10,0
+DA:11,0
+DA:12,0
+DA:13,0
+DA:14,0
 LF:21
-LH:17
+LH:0
 BRF:0
 BRH:0
 FNF:13
-FNH:11
+FNH:0
 end_of_record
 SF:c:\Desenv\xama_backup\XamaCore\Data\BackupProblem.cs
 FN:10,System.Guid XamaCore.Data.BackupProblem::get_Id()
@@ -600,66 +600,66 @@ FNF:6
 FNH:0
 end_of_record
 SF:c:\Desenv\xama_backup\XamaCore\Configs\ConfigPath.cs
-FN:14,System.String XamaCore.Configs.ConfigPath::get_Path()
-FNDA:20,System.String XamaCore.Configs.ConfigPath::get_Path()
-DA:15,20
-FN:17,System.Boolean XamaCore.Configs.ConfigPath::get_IncludeSubfolders()
-FNDA:285,System.Boolean XamaCore.Configs.ConfigPath::get_IncludeSubfolders()
-DA:18,285
-FN:20,System.Collections.Generic.IList`1<XamaCore.Configs.ConfigPattern> XamaCore.Configs.ConfigPath::get_Includes()
-FNDA:6591,System.Collections.Generic.IList`1<XamaCore.Configs.ConfigPattern> XamaCore.Configs.ConfigPath::get_Includes()
-DA:21,6591
-FN:23,System.Collections.Generic.IList`1<XamaCore.Configs.ConfigPattern> XamaCore.Configs.ConfigPath::get_Excludes()
-FNDA:3129,System.Collections.Generic.IList`1<XamaCore.Configs.ConfigPattern> XamaCore.Configs.ConfigPath::get_Excludes()
-DA:24,3129
-FN:27,System.Boolean XamaCore.Configs.ConfigPath::get_UseVolumeShadowCopy()
+FN:15,System.String XamaCore.Configs.ConfigPath::get_Path()
+FNDA:0,System.String XamaCore.Configs.ConfigPath::get_Path()
+DA:16,0
+FN:18,System.Boolean XamaCore.Configs.ConfigPath::get_IncludeSubfolders()
+FNDA:0,System.Boolean XamaCore.Configs.ConfigPath::get_IncludeSubfolders()
+DA:19,0
+FN:21,System.Collections.Generic.IList`1<XamaCore.Configs.ConfigPattern> XamaCore.Configs.ConfigPath::get_Includes()
+FNDA:0,System.Collections.Generic.IList`1<XamaCore.Configs.ConfigPattern> XamaCore.Configs.ConfigPath::get_Includes()
+DA:22,0
+FN:24,System.Collections.Generic.IList`1<XamaCore.Configs.ConfigPattern> XamaCore.Configs.ConfigPath::get_Excludes()
+FNDA:0,System.Collections.Generic.IList`1<XamaCore.Configs.ConfigPattern> XamaCore.Configs.ConfigPath::get_Excludes()
+DA:25,0
+FN:28,System.Boolean XamaCore.Configs.ConfigPath::get_UseVolumeShadowCopy()
 FNDA:0,System.Boolean XamaCore.Configs.ConfigPath::get_UseVolumeShadowCopy()
-DA:28,0
-FN:8,System.Void XamaCore.Configs.ConfigPath::.ctor()
-FNDA:6,System.Void XamaCore.Configs.ConfigPath::.ctor()
-DA:9,6
-DA:10,6
-DA:11,6
-DA:12,6
+DA:29,0
+FN:9,System.Void XamaCore.Configs.ConfigPath::.ctor()
+FNDA:0,System.Void XamaCore.Configs.ConfigPath::.ctor()
+DA:10,0
+DA:11,0
+DA:12,0
+DA:13,0
 LF:9
-LH:8
+LH:0
 BRF:0
 BRH:0
 FNF:6
-FNH:5
+FNH:0
 end_of_record
 SF:c:\Desenv\xama_backup\XamaCore\Configs\ConfigPattern.cs
 FN:14,System.String XamaCore.Configs.ConfigPattern::get_Pattern()
-FNDA:2035,System.String XamaCore.Configs.ConfigPattern::get_Pattern()
-DA:15,2035
+FNDA:0,System.String XamaCore.Configs.ConfigPattern::get_Pattern()
+DA:15,0
 FN:17,XamaCore.Configs.ConfigPatternTypeEnum XamaCore.Configs.ConfigPattern::get_PatternType()
-FNDA:2040,XamaCore.Configs.ConfigPatternTypeEnum XamaCore.Configs.ConfigPattern::get_PatternType()
-DA:18,2040
+FNDA:0,XamaCore.Configs.ConfigPatternTypeEnum XamaCore.Configs.ConfigPattern::get_PatternType()
+DA:18,0
 FN:20,XamaCore.Configs.ConfigPatternMode XamaCore.Configs.ConfigPattern::get_Mode()
-FNDA:2040,XamaCore.Configs.ConfigPatternMode XamaCore.Configs.ConfigPattern::get_Mode()
-DA:21,2040
+FNDA:0,XamaCore.Configs.ConfigPatternMode XamaCore.Configs.ConfigPattern::get_Mode()
+DA:21,0
 FN:23,XamaCore.Configs.ConfigPatternFileType XamaCore.Configs.ConfigPattern::get_AppliesTo()
-FNDA:6490,XamaCore.Configs.ConfigPatternFileType XamaCore.Configs.ConfigPattern::get_AppliesTo()
-DA:24,6490
+FNDA:0,XamaCore.Configs.ConfigPatternFileType XamaCore.Configs.ConfigPattern::get_AppliesTo()
+DA:24,0
 FN:26,System.String XamaCore.Configs.ConfigPattern::ToString()
 FNDA:0,System.String XamaCore.Configs.ConfigPattern::ToString()
 DA:27,0
 DA:28,0
 DA:29,0
 FN:6,System.Void XamaCore.Configs.ConfigPattern::.ctor()
-FNDA:5,System.Void XamaCore.Configs.ConfigPattern::.ctor()
-DA:7,5
-DA:8,5
-DA:9,5
-DA:10,5
-DA:11,5
-DA:12,5
+FNDA:0,System.Void XamaCore.Configs.ConfigPattern::.ctor()
+DA:7,0
+DA:8,0
+DA:9,0
+DA:10,0
+DA:11,0
+DA:12,0
 LF:13
-LH:10
+LH:0
 BRF:0
 BRH:0
 FNF:6
-FNH:5
+FNH:0
 end_of_record
 SF:c:\Desenv\xama_backup\XamaCore\Configs\ConfigRetention.cs
 FN:8,System.Int32 XamaCore.Configs.ConfigRetention::get_NumberOfFullCopies()
@@ -677,185 +677,206 @@ FNH:0
 end_of_record
 SF:c:\Desenv\xama_backup\XamaCore\Configs\ConfigTarget.cs
 FN:12,System.String XamaCore.Configs.ConfigTarget::get_FileName()
-FNDA:13,System.String XamaCore.Configs.ConfigTarget::get_FileName()
-DA:13,13
+FNDA:0,System.String XamaCore.Configs.ConfigTarget::get_FileName()
+DA:13,0
 FN:15,System.String XamaCore.Configs.ConfigTarget::get_Path()
-FNDA:13,System.String XamaCore.Configs.ConfigTarget::get_Path()
-DA:16,13
+FNDA:0,System.String XamaCore.Configs.ConfigTarget::get_Path()
+DA:16,0
 FN:18,XamaCore.Configs.ConfigCompressionMethod XamaCore.Configs.ConfigTarget::get_CompressionMethod()
 FNDA:0,XamaCore.Configs.ConfigCompressionMethod XamaCore.Configs.ConfigTarget::get_CompressionMethod()
 DA:19,0
 FN:21,XamaCore.Configs.ConfigCompressionLevel XamaCore.Configs.ConfigTarget::get_CompressionLevel()
-FNDA:19,XamaCore.Configs.ConfigCompressionLevel XamaCore.Configs.ConfigTarget::get_CompressionLevel()
-DA:22,19
+FNDA:0,XamaCore.Configs.ConfigCompressionLevel XamaCore.Configs.ConfigTarget::get_CompressionLevel()
+DA:22,0
 FN:24,XamaCore.Configs.ConfigRetention XamaCore.Configs.ConfigTarget::get_Retention()
 FNDA:0,XamaCore.Configs.ConfigRetention XamaCore.Configs.ConfigTarget::get_Retention()
 DA:25,0
 FN:6,System.Void XamaCore.Configs.ConfigTarget::.ctor()
-FNDA:6,System.Void XamaCore.Configs.ConfigTarget::.ctor()
-DA:7,6
-DA:8,6
-DA:9,6
-DA:10,6
+FNDA:0,System.Void XamaCore.Configs.ConfigTarget::.ctor()
+DA:7,0
+DA:8,0
+DA:9,0
+DA:10,0
 LF:9
-LH:7
+LH:0
 BRF:0
 BRH:0
 FNF:6
-FNH:4
+FNH:0
 end_of_record
 SF:c:\Desenv\xama_backup\XamaCore\Configs\ConfigTask.cs
 FN:13,System.String XamaCore.Configs.ConfigTask::get_Name()
-FNDA:20,System.String XamaCore.Configs.ConfigTask::get_Name()
-DA:14,20
+FNDA:0,System.String XamaCore.Configs.ConfigTask::get_Name()
+DA:14,0
 FN:16,System.Collections.Generic.IList`1<XamaCore.Configs.ConfigPath> XamaCore.Configs.ConfigTask::get_Paths()
-FNDA:17,System.Collections.Generic.IList`1<XamaCore.Configs.ConfigPath> XamaCore.Configs.ConfigTask::get_Paths()
-DA:17,17
+FNDA:0,System.Collections.Generic.IList`1<XamaCore.Configs.ConfigPath> XamaCore.Configs.ConfigTask::get_Paths()
+DA:17,0
 FN:19,System.Collections.Generic.IList`1<XamaCore.Configs.ConfigSchedule> XamaCore.Configs.ConfigTask::get_Schedules()
 FNDA:0,System.Collections.Generic.IList`1<XamaCore.Configs.ConfigSchedule> XamaCore.Configs.ConfigTask::get_Schedules()
 DA:20,0
 FN:22,XamaCore.Configs.ConfigTarget XamaCore.Configs.ConfigTask::get_Target()
-FNDA:27,XamaCore.Configs.ConfigTarget XamaCore.Configs.ConfigTask::get_Target()
-DA:23,27
+FNDA:0,XamaCore.Configs.ConfigTarget XamaCore.Configs.ConfigTask::get_Target()
+DA:23,0
 FN:25,XamaCore.Configs.ConfigTaskTypeEnum XamaCore.Configs.ConfigTask::get_TaskType()
-FNDA:7,XamaCore.Configs.ConfigTaskTypeEnum XamaCore.Configs.ConfigTask::get_TaskType()
-DA:26,7
+FNDA:0,XamaCore.Configs.ConfigTaskTypeEnum XamaCore.Configs.ConfigTask::get_TaskType()
+DA:26,0
 FN:8,System.Void XamaCore.Configs.ConfigTask::.ctor()
-FNDA:6,System.Void XamaCore.Configs.ConfigTask::.ctor()
-DA:9,6
-DA:10,6
-DA:11,6
+FNDA:0,System.Void XamaCore.Configs.ConfigTask::.ctor()
+DA:9,0
+DA:10,0
+DA:11,0
 LF:8
-LH:7
+LH:0
 BRF:0
 BRH:0
 FNF:6
-FNH:5
+FNH:0
 end_of_record
 SF:c:\Desenv\xama_backup\XamaCore\Compressors\Compress7zip.cs
-FN:19,System.Void XamaCore.Compressors.Compress7zip::Close()
-FNDA:1,System.Void XamaCore.Compressors.Compress7zip::Close()
-DA:20,1
-DA:21,1
-DA:22,1
-FN:24,System.Void XamaCore.Compressors.Compress7zip::Compress(System.String,System.String)
-FNDA:400,System.Void XamaCore.Compressors.Compress7zip::Compress(System.String,System.String)
-DA:25,400
-DA:26,400
-DA:27,400
-FN:29,System.String XamaCore.Compressors.Compress7zip::GetFileExtension()
-FNDA:1,System.String XamaCore.Compressors.Compress7zip::GetFileExtension()
-DA:30,1
-DA:31,1
-DA:32,1
-FN:34,System.Void XamaCore.Compressors.Compress7zip::OpenFile(System.String,XamaCore.Configs.ConfigCompressionLevel)
-FNDA:1,System.Void XamaCore.Compressors.Compress7zip::OpenFile(System.String,XamaCore.Configs.ConfigCompressionLevel)
-DA:35,1
-DA:36,1
-DA:37,1
-DA:38,1
-DA:39,1
-DA:40,1
-DA:41,1
-DA:42,1
-DA:43,1
+FN:21,System.Void XamaCore.Compressors.Compress7zip::Close()
+FNDA:0,System.Void XamaCore.Compressors.Compress7zip::Close()
+DA:22,0
+DA:23,0
+DA:24,0
+DA:25,0
+DA:26,0
+DA:27,0
+DA:28,0
+DA:29,0
+DA:30,0
+DA:31,0
+DA:32,0
+DA:33,0
+DA:34,0
+DA:35,0
+DA:36,0
+BRDA:23,7,0,0
+BRDA:23,7,1,0
+BRDA:23,28,0,0
+BRDA:23,28,1,0
+BRDA:32,124,0,0
+BRDA:32,124,1,0
+FN:38,System.Void XamaCore.Compressors.Compress7zip::Compress(System.String,System.String)
+FNDA:0,System.Void XamaCore.Compressors.Compress7zip::Compress(System.String,System.String)
+DA:39,0
+DA:40,0
+DA:41,0
+FN:43,System.String XamaCore.Compressors.Compress7zip::GetFileExtension()
+FNDA:0,System.String XamaCore.Compressors.Compress7zip::GetFileExtension()
+DA:44,0
+DA:45,0
 DA:46,0
-DA:47,0
+FN:48,System.Void XamaCore.Compressors.Compress7zip::OpenFile(System.String,XamaCore.Configs.ConfigCompressionLevel)
+FNDA:0,System.Void XamaCore.Compressors.Compress7zip::OpenFile(System.String,XamaCore.Configs.ConfigCompressionLevel)
 DA:49,0
 DA:50,0
-DA:52,1
-DA:53,1
+DA:51,0
+DA:52,0
+DA:53,0
+DA:54,0
 DA:55,0
 DA:56,0
-DA:58,0
-DA:59,0
+DA:57,0
+DA:60,0
 DA:61,0
-DA:62,0
-DA:64,1
-DA:65,1
-DA:66,1
-BRDA:36,21,0,0
-BRDA:36,21,1,1
-BRDA:43,85,1,0
-BRDA:43,85,2,0
-BRDA:43,85,3,1
-BRDA:43,85,4,0
-BRDA:43,85,5,0
-BRDA:43,85,0,0
-LF:33
-LH:23
-BRF:8
-BRH:2
-FNF:4
-FNH:4
+DA:63,0
+DA:64,0
+DA:66,0
+DA:67,0
+DA:69,0
+DA:70,0
+DA:72,0
+DA:73,0
+DA:75,0
+DA:76,0
+DA:78,0
+DA:79,0
+DA:80,0
+BRDA:50,21,0,0
+BRDA:50,21,1,0
+BRDA:57,85,1,0
+BRDA:57,85,2,0
+BRDA:57,85,3,0
+BRDA:57,85,4,0
+BRDA:57,85,5,0
+BRDA:57,85,0,0
+FN:18,System.Void XamaCore.Compressors.Compress7zip::.ctor()
+FNDA:0,System.Void XamaCore.Compressors.Compress7zip::.ctor()
+DA:19,0
+LF:46
+LH:0
+BRF:14
+BRH:0
+FNF:5
+FNH:0
 end_of_record
 SF:c:\Desenv\xama_backup\XamaCore\Compressors\CompressZip.cs
 FN:15,NLog.ILogger XamaCore.Compressors.CompressZip::get__logger()
 FNDA:0,NLog.ILogger XamaCore.Compressors.CompressZip::get__logger()
 DA:16,0
 FN:18,System.Void XamaCore.Compressors.CompressZip::Close()
-FNDA:6,System.Void XamaCore.Compressors.CompressZip::Close()
-DA:19,6
-DA:20,6
+FNDA:0,System.Void XamaCore.Compressors.CompressZip::Close()
+DA:19,0
+DA:20,0
 DA:21,0
-DA:23,6
-DA:24,6
-DA:25,6
+DA:23,0
+DA:24,0
+DA:25,0
 BRDA:20,12,0,0
-BRDA:20,12,1,6
+BRDA:20,12,1,0
 FN:27,System.Void XamaCore.Compressors.CompressZip::Compress(System.String,System.String)
-FNDA:1228,System.Void XamaCore.Compressors.CompressZip::Compress(System.String,System.String)
-DA:28,1228
-DA:29,1228
+FNDA:0,System.Void XamaCore.Compressors.CompressZip::Compress(System.String,System.String)
+DA:28,0
+DA:29,0
 DA:30,0
-DA:33,1228
-DA:34,1228
-DA:36,1228
-DA:37,1228
-DA:38,1228
+DA:33,0
+DA:34,0
+DA:36,0
+DA:37,0
+DA:38,0
 BRDA:29,12,0,0
-BRDA:29,12,1,1228
+BRDA:29,12,1,0
 FN:40,System.String XamaCore.Compressors.CompressZip::GetFileExtension()
-FNDA:6,System.String XamaCore.Compressors.CompressZip::GetFileExtension()
-DA:41,6
-DA:42,6
-DA:43,6
+FNDA:0,System.String XamaCore.Compressors.CompressZip::GetFileExtension()
+DA:41,0
+DA:42,0
+DA:43,0
 FN:45,System.Void XamaCore.Compressors.CompressZip::OpenFile(System.String,XamaCore.Configs.ConfigCompressionLevel)
-FNDA:6,System.Void XamaCore.Compressors.CompressZip::OpenFile(System.String,XamaCore.Configs.ConfigCompressionLevel)
-DA:46,6
-DA:47,6
+FNDA:0,System.Void XamaCore.Compressors.CompressZip::OpenFile(System.String,XamaCore.Configs.ConfigCompressionLevel)
+DA:46,0
+DA:47,0
 DA:48,0
 DA:49,0
 DA:50,0
-DA:51,6
-DA:52,6
-DA:53,6
+DA:51,0
+DA:52,0
+DA:53,0
 DA:56,0
 DA:57,0
 DA:59,0
 DA:60,0
-DA:62,6
-DA:63,6
+DA:62,0
+DA:63,0
 DA:65,0
 DA:66,0
 DA:68,0
 DA:69,0
-DA:71,6
-DA:72,6
+DA:71,0
+DA:72,0
 BRDA:47,17,0,0
-BRDA:47,17,1,6
+BRDA:47,17,1,0
 BRDA:53,58,5,0
 BRDA:53,58,4,0
-BRDA:53,58,3,6
+BRDA:53,58,3,0
 BRDA:53,58,2,0
 BRDA:53,58,1,0
-BRDA:53,58,0,6
+BRDA:53,58,0,0
 LF:38
-LH:24
+LH:0
 BRF:12
-BRH:5
+BRH:0
 FNF:5
-FNH:4
+FNH:0
 end_of_record
 SF:c:\Desenv\xama_backup\XamaWinService\BackupJob.cs
 FN:20,NLog.ILogger XamaWinService.BackupJob::get__logger()
@@ -1093,10 +1114,9 @@ DA:44,0
 DA:45,0
 DA:46,0
 DA:47,0
-DA:48,0
 BRDA:18,41,0,0
 BRDA:18,41,1,0
-LF:29
+LF:28
 LH:0
 BRF:2
 BRH:0
@@ -1172,30 +1192,30 @@ DA:11,0
 DA:12,0
 DA:13,0
 FN:15,System.DateTime XamaWinService.Schedulers.DailyScheduler::NextRun(System.DateTime,XamaWinService.Configs.ConfigScheduleDaily)
-FNDA:2,System.DateTime XamaWinService.Schedulers.DailyScheduler::NextRun(System.DateTime,XamaWinService.Configs.ConfigScheduleDaily)
-DA:16,2
-DA:17,2
-DA:18,1
-DA:19,1
-DA:20,1
-DA:21,1
+FNDA:0,System.DateTime XamaWinService.Schedulers.DailyScheduler::NextRun(System.DateTime,XamaWinService.Configs.ConfigScheduleDaily)
+DA:16,0
+DA:17,0
+DA:18,0
+DA:19,0
+DA:20,0
+DA:21,0
 DA:22,0
-DA:23,1
+DA:23,0
 BRDA:19,67,0,0
-BRDA:19,67,1,1
-BRDA:20,94,0,1
+BRDA:19,67,1,0
+BRDA:20,94,0,0
 BRDA:20,94,1,0
 FN:25,System.Void XamaWinService.Schedulers.DailyScheduler::ValidateConfig(XamaWinService.Configs.ConfigScheduleDaily)
-FNDA:2,System.Void XamaWinService.Schedulers.DailyScheduler::ValidateConfig(XamaWinService.Configs.ConfigScheduleDaily)
-DA:26,2
-DA:27,2
-DA:28,1
+FNDA:0,System.Void XamaWinService.Schedulers.DailyScheduler::ValidateConfig(XamaWinService.Configs.ConfigScheduleDaily)
+DA:26,0
+DA:27,0
+DA:28,0
 LF:14
-LH:10
+LH:0
 BRF:4
-BRH:2
+BRH:0
 FNF:3
-FNH:2
+FNH:0
 end_of_record
 SF:c:\Desenv\xama_backup\XamaWinService\Schedulers\MonthlyScheduler.cs
 FN:11,System.Boolean XamaWinService.Schedulers.MonthlyScheduler::IsCron()
@@ -1204,59 +1224,59 @@ DA:12,0
 DA:13,0
 DA:14,0
 FN:16,System.DateTime XamaWinService.Schedulers.MonthlyScheduler::NextRun(System.DateTime,XamaWinService.Configs.ConfigScheduleMonthly)
-FNDA:6,System.DateTime XamaWinService.Schedulers.MonthlyScheduler::NextRun(System.DateTime,XamaWinService.Configs.ConfigScheduleMonthly)
-DA:17,6
-DA:18,6
-DA:19,2
-DA:20,2
-DA:21,2
-DA:22,2
-DA:24,2
+FNDA:0,System.DateTime XamaWinService.Schedulers.MonthlyScheduler::NextRun(System.DateTime,XamaWinService.Configs.ConfigScheduleMonthly)
+DA:17,0
+DA:18,0
+DA:19,0
+DA:20,0
+DA:21,0
+DA:22,0
+DA:24,0
 DA:25,0
 DA:26,0
 DA:27,0
 DA:28,0
-DA:29,2
-DA:30,2
-DA:31,5
-DA:32,5
-DA:34,5
-DA:35,5
-DA:36,2
-DA:38,3
-DA:39,3
-DA:40,3
-DA:41,3
-DA:42,3
-DA:43,2
+DA:29,0
+DA:30,0
+DA:31,0
+DA:32,0
+DA:34,0
+DA:35,0
+DA:36,0
+DA:38,0
+DA:39,0
+DA:40,0
+DA:41,0
+DA:42,0
+DA:43,0
 DA:44,0
-DA:46,2
-DA:47,2
+DA:46,0
+DA:47,0
 BRDA:24,59,0,0
-BRDA:24,59,1,2
-BRDA:31,161,1,5
+BRDA:24,59,1,0
+BRDA:31,161,1,0
 BRDA:35,110,0,0
-BRDA:35,110,1,5
-BRDA:31,161,0,2
+BRDA:35,110,1,0
+BRDA:31,161,0,0
 BRDA:43,177,0,0
-BRDA:43,177,1,2
+BRDA:43,177,1,0
 FN:49,System.Void XamaWinService.Schedulers.MonthlyScheduler::ValidateConfig(XamaWinService.Configs.ConfigScheduleMonthly)
-FNDA:6,System.Void XamaWinService.Schedulers.MonthlyScheduler::ValidateConfig(XamaWinService.Configs.ConfigScheduleMonthly)
-DA:50,6
-DA:51,6
-DA:52,2
-DA:53,4
-DA:54,2
-BRDA:51,8,0,5
-BRDA:51,8,1,1
-BRDA:51,25,0,2
-BRDA:51,25,1,4
+FNDA:0,System.Void XamaWinService.Schedulers.MonthlyScheduler::ValidateConfig(XamaWinService.Configs.ConfigScheduleMonthly)
+DA:50,0
+DA:51,0
+DA:52,0
+DA:53,0
+DA:54,0
+BRDA:51,8,0,0
+BRDA:51,8,1,0
+BRDA:51,25,0,0
+BRDA:51,25,1,0
 LF:35
-LH:27
+LH:0
 BRF:12
-BRH:9
+BRH:0
 FNF:3
-FNH:2
+FNH:0
 end_of_record
 SF:c:\Desenv\xama_backup\XamaWinService\Schedulers\OnStartupScheduler.cs
 FN:8,System.Boolean XamaWinService.Schedulers.OnStartupScheduler::IsCron()
@@ -1314,77 +1334,77 @@ DA:20,0
 DA:21,0
 DA:22,0
 FN:24,System.Void XamaWinService.Schedulers.Scheduler`1::ValidateTime(System.String)
-FNDA:11,System.Void XamaWinService.Schedulers.Scheduler`1::ValidateTime(System.String)
-DA:25,11
-DA:26,11
+FNDA:0,System.Void XamaWinService.Schedulers.Scheduler`1::ValidateTime(System.String)
+DA:25,0
+DA:26,0
 DA:27,0
-DA:29,11
-DA:30,11
-DA:31,3
-DA:33,8
-DA:34,8
+DA:29,0
+DA:30,0
+DA:31,0
+DA:33,0
+DA:34,0
 DA:35,0
-DA:37,8
-DA:38,2
-DA:40,6
-DA:41,6
+DA:37,0
+DA:38,0
+DA:40,0
+DA:41,0
 DA:42,0
-DA:44,6
+DA:44,0
 DA:45,0
-DA:47,6
-DA:48,6
-DA:49,6
-DA:50,6
+DA:47,0
+DA:48,0
+DA:49,0
+DA:50,0
 DA:51,0
-DA:53,6
+DA:53,0
 DA:54,0
-DA:55,6
-DA:56,6
+DA:55,0
+DA:56,0
 BRDA:26,9,0,0
-BRDA:26,9,1,11
-BRDA:30,36,0,8
-BRDA:30,36,1,3
-BRDA:30,51,0,3
-BRDA:30,51,1,8
+BRDA:26,9,1,0
+BRDA:30,36,0,0
+BRDA:30,36,1,0
+BRDA:30,51,0,0
+BRDA:30,51,1,0
 BRDA:34,83,0,0
-BRDA:34,83,1,8
-BRDA:37,98,0,8
+BRDA:34,83,1,0
+BRDA:37,98,0,0
 BRDA:37,98,1,0
-BRDA:37,112,0,2
-BRDA:37,112,1,6
+BRDA:37,112,0,0
+BRDA:37,112,1,0
 BRDA:41,144,0,0
-BRDA:41,144,1,6
-BRDA:44,159,0,6
+BRDA:41,144,1,0
+BRDA:44,159,0,0
 BRDA:44,159,1,0
 BRDA:44,173,0,0
-BRDA:44,173,1,6
-BRDA:47,196,0,6
+BRDA:44,173,1,0
+BRDA:47,196,0,0
 BRDA:50,218,0,0
-BRDA:50,218,1,6
-BRDA:53,233,0,6
+BRDA:50,218,1,0
+BRDA:53,233,0,0
 BRDA:53,233,1,0
 BRDA:53,247,0,0
-BRDA:53,247,1,6
-BRDA:47,196,1,6
+BRDA:53,247,1,0
+BRDA:47,196,1,0
 LF:31
-LH:19
+LH:0
 BRF:26
-BRH:17
+BRH:0
 FNF:3
-FNH:1
+FNH:0
 end_of_record
 SF:c:\Desenv\xama_backup\XamaWinService\Schedulers\SchedulerException.cs
 FN:6,System.Void XamaWinService.Schedulers.SchedulerException::.ctor(System.String)
-FNDA:9,System.Void XamaWinService.Schedulers.SchedulerException::.ctor(System.String)
-DA:7,9
-DA:8,9
-DA:9,9
+FNDA:0,System.Void XamaWinService.Schedulers.SchedulerException::.ctor(System.String)
+DA:7,0
+DA:8,0
+DA:9,0
 LF:3
-LH:3
+LH:0
 BRF:0
 BRH:0
 FNF:1
-FNH:1
+FNH:0
 end_of_record
 SF:c:\Desenv\xama_backup\XamaWinService\Schedulers\WeeklyScheduler.cs
 FN:10,System.Boolean XamaWinService.Schedulers.WeeklyScheduler::IsCron()
@@ -1393,93 +1413,93 @@ DA:11,0
 DA:12,0
 DA:13,0
 FN:15,System.DateTime XamaWinService.Schedulers.WeeklyScheduler::NextRun(System.DateTime,XamaWinService.Configs.ConfigScheduleWeekly)
-FNDA:5,System.DateTime XamaWinService.Schedulers.WeeklyScheduler::NextRun(System.DateTime,XamaWinService.Configs.ConfigScheduleWeekly)
-DA:16,5
-DA:17,5
-DA:18,1
-DA:19,1
-DA:20,1
-DA:22,2
-DA:23,2
-DA:24,2
-DA:25,2
-DA:26,1
-DA:27,1
+FNDA:0,System.DateTime XamaWinService.Schedulers.WeeklyScheduler::NextRun(System.DateTime,XamaWinService.Configs.ConfigScheduleWeekly)
+DA:16,0
+DA:17,0
+DA:18,0
+DA:19,0
+DA:20,0
+DA:22,0
+DA:23,0
+DA:24,0
+DA:25,0
+DA:26,0
+DA:27,0
 DA:28,0
-DA:29,1
+DA:29,0
 DA:30,0
-DA:31,1
+DA:31,0
 DA:32,0
-DA:33,1
+DA:33,0
 DA:34,0
-DA:35,1
+DA:35,0
 DA:36,0
-DA:37,1
+DA:37,0
 DA:38,0
-DA:39,2
+DA:39,0
 DA:40,0
-DA:41,1
+DA:41,0
 BRDA:19,67,0,0
-BRDA:19,67,1,1
-BRDA:39,332,1,2
-BRDA:25,110,0,1
-BRDA:25,110,1,1
-BRDA:25,125,0,1
-BRDA:25,125,1,1
+BRDA:19,67,1,0
+BRDA:39,332,1,0
+BRDA:25,110,0,0
+BRDA:25,110,1,0
+BRDA:25,125,0,0
+BRDA:25,125,1,0
 BRDA:27,143,0,0
-BRDA:27,143,1,1
+BRDA:27,143,1,0
 BRDA:27,158,0,0
-BRDA:27,158,1,1
+BRDA:27,158,1,0
 BRDA:29,176,0,0
-BRDA:29,176,1,1
+BRDA:29,176,1,0
 BRDA:29,191,0,0
-BRDA:29,191,1,1
+BRDA:29,191,1,0
 BRDA:31,209,0,0
-BRDA:31,209,1,1
+BRDA:31,209,1,0
 BRDA:31,224,0,0
-BRDA:31,224,1,1
+BRDA:31,224,1,0
 BRDA:33,239,0,0
-BRDA:33,239,1,1
+BRDA:33,239,1,0
 BRDA:33,254,0,0
-BRDA:33,254,1,1
+BRDA:33,254,1,0
 BRDA:35,269,0,0
-BRDA:35,269,1,1
+BRDA:35,269,1,0
 BRDA:35,284,0,0
-BRDA:35,284,1,1
-BRDA:37,298,0,1
+BRDA:35,284,1,0
+BRDA:37,298,0,0
 BRDA:37,298,1,0
 BRDA:37,313,0,0
-BRDA:37,313,1,1
+BRDA:37,313,1,0
 BRDA:39,332,0,0
 FN:43,System.Void XamaWinService.Schedulers.WeeklyScheduler::ValidateConfig(XamaWinService.Configs.ConfigScheduleWeekly)
-FNDA:5,System.Void XamaWinService.Schedulers.WeeklyScheduler::ValidateConfig(XamaWinService.Configs.ConfigScheduleWeekly)
-DA:44,5
-DA:45,5
-DA:46,3
-DA:47,3
-DA:48,3
-DA:49,2
-DA:50,1
-BRDA:46,20,0,2
-BRDA:46,28,0,2
-BRDA:46,36,0,2
-BRDA:46,44,0,2
-BRDA:46,52,0,2
-BRDA:46,60,0,2
-BRDA:46,20,1,1
-BRDA:46,28,1,1
-BRDA:46,36,1,1
-BRDA:46,44,1,1
-BRDA:46,52,1,1
-BRDA:46,60,1,1
-BRDA:46,76,0,2
-BRDA:46,76,1,1
+FNDA:0,System.Void XamaWinService.Schedulers.WeeklyScheduler::ValidateConfig(XamaWinService.Configs.ConfigScheduleWeekly)
+DA:44,0
+DA:45,0
+DA:46,0
+DA:47,0
+DA:48,0
+DA:49,0
+DA:50,0
+BRDA:46,20,0,0
+BRDA:46,28,0,0
+BRDA:46,36,0,0
+BRDA:46,44,0,0
+BRDA:46,52,0,0
+BRDA:46,60,0,0
+BRDA:46,20,1,0
+BRDA:46,28,1,0
+BRDA:46,36,1,0
+BRDA:46,44,1,0
+BRDA:46,52,1,0
+BRDA:46,60,1,0
+BRDA:46,76,0,0
+BRDA:46,76,1,0
 LF:35
-LH:25
+LH:0
 BRF:46
-BRH:32
+BRH:0
 FNF:3
-FNH:2
+FNH:0
 end_of_record
 SF:c:\Desenv\xama_backup\XamaWinService\Schedulers\YearlyScheduler.cs
 FN:10,System.Boolean XamaWinService.Schedulers.YearlyScheduler::IsCron()
@@ -1560,46 +1580,46 @@ FNH:0
 end_of_record
 SF:c:\Desenv\xama_backup\XamaWinService\Helpers\NLogInit.cs
 FN:14,System.Void XamaWinService.Helpers.NLogInit::Configure(XamaWinService.Configs.ConfigLog)
-FNDA:6,System.Void XamaWinService.Helpers.NLogInit::Configure(XamaWinService.Configs.ConfigLog)
-DA:15,6
-DA:16,6
+FNDA:0,System.Void XamaWinService.Helpers.NLogInit::Configure(XamaWinService.Configs.ConfigLog)
+DA:15,0
+DA:16,0
 DA:17,0
-DA:19,6
-DA:20,5
-DA:21,5
-DA:22,5
-DA:24,6
-DA:25,6
-DA:26,6
-DA:27,6
-DA:28,6
-DA:29,6
-DA:30,6
-DA:31,6
-DA:32,6
-DA:33,6
-DA:35,6
-DA:36,6
-DA:37,6
-DA:39,6
-DA:40,6
-DA:42,6
-DA:43,6
-DA:44,6
-BRDA:16,9,1,6
-BRDA:19,28,0,5
-BRDA:19,28,1,6
+DA:19,0
+DA:20,0
+DA:21,0
+DA:22,0
+DA:24,0
+DA:25,0
+DA:26,0
+DA:27,0
+DA:28,0
+DA:29,0
+DA:30,0
+DA:31,0
+DA:32,0
+DA:33,0
+DA:35,0
+DA:36,0
+DA:37,0
+DA:39,0
+DA:40,0
+DA:42,0
+DA:43,0
+DA:44,0
+BRDA:16,9,1,0
+BRDA:19,28,0,0
+BRDA:19,28,1,0
 BRDA:39,228,0,0
-BRDA:39,228,1,6
+BRDA:39,228,1,0
 BRDA:40,266,0,0
-BRDA:40,266,1,6
-BRDA:16,9,0,6
+BRDA:40,266,1,0
+BRDA:16,9,0,0
 LF:25
-LH:24
+LH:0
 BRF:8
-BRH:6
+BRH:0
 FNF:1
-FNH:1
+FNH:0
 end_of_record
 SF:c:\Desenv\xama_backup\XamaWinService\Helpers\TypeHelper.cs
 FN:10,System.Collections.Generic.IList`1<System.Type> XamaWinService.Helpers.TypeHelper::GetTypesExtending(System.Type,System.String,System.Boolean,System.Boolean)
@@ -1677,48 +1697,48 @@ FNH:0
 end_of_record
 SF:c:\Desenv\xama_backup\XamaWinService\Configs\ConfigApp.cs
 FN:15,System.Collections.Generic.IList`1<XamaCore.Configs.ConfigTask> XamaWinService.Configs.ConfigApp::get_Tasks()
-FNDA:17,System.Collections.Generic.IList`1<XamaCore.Configs.ConfigTask> XamaWinService.Configs.ConfigApp::get_Tasks()
-DA:16,17
+FNDA:0,System.Collections.Generic.IList`1<XamaCore.Configs.ConfigTask> XamaWinService.Configs.ConfigApp::get_Tasks()
+DA:16,0
 FN:18,System.Boolean XamaWinService.Configs.ConfigApp::get_EnableLog()
-FNDA:6,System.Boolean XamaWinService.Configs.ConfigApp::get_EnableLog()
-DA:19,6
+FNDA:0,System.Boolean XamaWinService.Configs.ConfigApp::get_EnableLog()
+DA:19,0
 FN:21,XamaWinService.Configs.ConfigLog XamaWinService.Configs.ConfigApp::get_LogConfig()
-FNDA:12,XamaWinService.Configs.ConfigLog XamaWinService.Configs.ConfigApp::get_LogConfig()
-DA:22,12
+FNDA:0,XamaWinService.Configs.ConfigLog XamaWinService.Configs.ConfigApp::get_LogConfig()
+DA:22,0
 FN:10,System.Void XamaWinService.Configs.ConfigApp::.ctor()
-FNDA:6,System.Void XamaWinService.Configs.ConfigApp::.ctor()
-DA:11,6
-DA:12,6
-DA:13,6
+FNDA:0,System.Void XamaWinService.Configs.ConfigApp::.ctor()
+DA:11,0
+DA:12,0
+DA:13,0
 LF:6
-LH:6
+LH:0
 BRF:0
 BRH:0
 FNF:4
-FNH:4
+FNH:0
 end_of_record
 SF:c:\Desenv\xama_backup\XamaWinService\Configs\ConfigLog.cs
 FN:7,System.String XamaWinService.Configs.ConfigLog::get_LogFileName()
-FNDA:12,System.String XamaWinService.Configs.ConfigLog::get_LogFileName()
-DA:8,12
+FNDA:0,System.String XamaWinService.Configs.ConfigLog::get_LogFileName()
+DA:8,0
 FN:10,System.String XamaWinService.Configs.ConfigLog::get_LogFilePath()
-FNDA:12,System.String XamaWinService.Configs.ConfigLog::get_LogFilePath()
-DA:11,12
+FNDA:0,System.String XamaWinService.Configs.ConfigLog::get_LogFilePath()
+DA:11,0
 FN:13,System.Int32 XamaWinService.Configs.ConfigLog::get_MaxLogSize()
-FNDA:12,System.Int32 XamaWinService.Configs.ConfigLog::get_MaxLogSize()
-DA:14,12
+FNDA:0,System.Int32 XamaWinService.Configs.ConfigLog::get_MaxLogSize()
+DA:14,0
 FN:16,System.Int32 XamaWinService.Configs.ConfigLog::get_MaxArchiveFiles()
-FNDA:12,System.Int32 XamaWinService.Configs.ConfigLog::get_MaxArchiveFiles()
-DA:17,12
+FNDA:0,System.Int32 XamaWinService.Configs.ConfigLog::get_MaxArchiveFiles()
+DA:17,0
 FN:19,System.Boolean XamaWinService.Configs.ConfigLog::get_ShowTrace()
-FNDA:18,System.Boolean XamaWinService.Configs.ConfigLog::get_ShowTrace()
-DA:20,18
+FNDA:0,System.Boolean XamaWinService.Configs.ConfigLog::get_ShowTrace()
+DA:20,0
 LF:5
-LH:5
+LH:0
 BRF:0
 BRH:0
 FNF:5
-FNH:5
+FNH:0
 end_of_record
 SF:c:\Desenv\xama_backup\XamaWinService\Configs\ConfigScheduleCron.cs
 FN:10,System.String XamaWinService.Configs.ConfigScheduleCron::get_CronExpression()
@@ -1738,28 +1758,28 @@ FNH:0
 end_of_record
 SF:c:\Desenv\xama_backup\XamaWinService\Configs\ConfigScheduleDaily.cs
 FN:9,System.String XamaWinService.Configs.ConfigScheduleDaily::get_Time()
-FNDA:5,System.String XamaWinService.Configs.ConfigScheduleDaily::get_Time()
-DA:10,5
+FNDA:0,System.String XamaWinService.Configs.ConfigScheduleDaily::get_Time()
+DA:10,0
 LF:1
-LH:1
+LH:0
 BRF:0
 BRH:0
 FNF:1
-FNH:1
+FNH:0
 end_of_record
 SF:c:\Desenv\xama_backup\XamaWinService\Configs\ConfigScheduleMonthly.cs
 FN:6,System.String XamaWinService.Configs.ConfigScheduleMonthly::get_Time()
-FNDA:12,System.String XamaWinService.Configs.ConfigScheduleMonthly::get_Time()
-DA:7,12
+FNDA:0,System.String XamaWinService.Configs.ConfigScheduleMonthly::get_Time()
+DA:7,0
 FN:7,System.Int32 XamaWinService.Configs.ConfigScheduleMonthly::get_Day()
-FNDA:17,System.Int32 XamaWinService.Configs.ConfigScheduleMonthly::get_Day()
-DA:8,17
+FNDA:0,System.Int32 XamaWinService.Configs.ConfigScheduleMonthly::get_Day()
+DA:8,0
 LF:2
-LH:2
+LH:0
 BRF:0
 BRH:0
 FNF:2
-FNH:2
+FNH:0
 end_of_record
 SF:c:\Desenv\xama_backup\XamaWinService\Configs\ConfigScheduleOnce.cs
 FN:7,System.DateTime XamaWinService.Configs.ConfigScheduleOnce::get_DateTime()
@@ -1774,40 +1794,40 @@ FNH:0
 end_of_record
 SF:c:\Desenv\xama_backup\XamaWinService\Configs\ConfigScheduleWeekly.cs
 FN:10,System.String XamaWinService.Configs.ConfigScheduleWeekly::get_Time()
-FNDA:11,System.String XamaWinService.Configs.ConfigScheduleWeekly::get_Time()
-DA:11,11
+FNDA:0,System.String XamaWinService.Configs.ConfigScheduleWeekly::get_Time()
+DA:11,0
 FN:11,System.Boolean XamaWinService.Configs.ConfigScheduleWeekly::get_Monday()
-FNDA:5,System.Boolean XamaWinService.Configs.ConfigScheduleWeekly::get_Monday()
-DA:12,5
+FNDA:0,System.Boolean XamaWinService.Configs.ConfigScheduleWeekly::get_Monday()
+DA:12,0
 FN:12,System.Boolean XamaWinService.Configs.ConfigScheduleWeekly::get_Tuesday()
-FNDA:2,System.Boolean XamaWinService.Configs.ConfigScheduleWeekly::get_Tuesday()
-DA:13,2
+FNDA:0,System.Boolean XamaWinService.Configs.ConfigScheduleWeekly::get_Tuesday()
+DA:13,0
 FN:13,System.Boolean XamaWinService.Configs.ConfigScheduleWeekly::get_Wednesday()
-FNDA:2,System.Boolean XamaWinService.Configs.ConfigScheduleWeekly::get_Wednesday()
-DA:14,2
+FNDA:0,System.Boolean XamaWinService.Configs.ConfigScheduleWeekly::get_Wednesday()
+DA:14,0
 FN:14,System.Boolean XamaWinService.Configs.ConfigScheduleWeekly::get_Thursday()
-FNDA:2,System.Boolean XamaWinService.Configs.ConfigScheduleWeekly::get_Thursday()
-DA:15,2
+FNDA:0,System.Boolean XamaWinService.Configs.ConfigScheduleWeekly::get_Thursday()
+DA:15,0
 FN:15,System.Boolean XamaWinService.Configs.ConfigScheduleWeekly::get_Friday()
-FNDA:2,System.Boolean XamaWinService.Configs.ConfigScheduleWeekly::get_Friday()
-DA:16,2
+FNDA:0,System.Boolean XamaWinService.Configs.ConfigScheduleWeekly::get_Friday()
+DA:16,0
 FN:16,System.Boolean XamaWinService.Configs.ConfigScheduleWeekly::get_Saturday()
-FNDA:2,System.Boolean XamaWinService.Configs.ConfigScheduleWeekly::get_Saturday()
-DA:17,2
+FNDA:0,System.Boolean XamaWinService.Configs.ConfigScheduleWeekly::get_Saturday()
+DA:17,0
 FN:17,System.Boolean XamaWinService.Configs.ConfigScheduleWeekly::get_Sunday()
-FNDA:3,System.Boolean XamaWinService.Configs.ConfigScheduleWeekly::get_Sunday()
-DA:18,3
+FNDA:0,System.Boolean XamaWinService.Configs.ConfigScheduleWeekly::get_Sunday()
+DA:18,0
 FN:6,System.Void XamaWinService.Configs.ConfigScheduleWeekly::.ctor()
-FNDA:5,System.Void XamaWinService.Configs.ConfigScheduleWeekly::.ctor()
-DA:7,5
-DA:8,5
-DA:9,5
+FNDA:0,System.Void XamaWinService.Configs.ConfigScheduleWeekly::.ctor()
+DA:7,0
+DA:8,0
+DA:9,0
 LF:11
-LH:11
+LH:0
 BRF:0
 BRH:0
 FNF:9
-FNH:9
+FNH:0
 end_of_record
 SF:c:\Desenv\xama_backup\XamaWinService\Configs\ConfigScheduleYearly.cs
 FN:6,System.String XamaWinService.Configs.ConfigScheduleYearly::get_Time()
