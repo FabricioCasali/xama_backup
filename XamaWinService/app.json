@@ -1,84 +1,84 @@
 {
-    "enableLog": true,
-    "logConfig": {
-        "fileName": "xama.log",
-        "path": "c:/temp/",
-        "maxSize": 50000000,
-        "maxFiles": 5,
-        "showTrace": false
-    },
-    "tasks": [
+  "enableLog": true,
+  "logConfig": {
+    "fileName": "xama-dev.log",
+    "path": "c:/temp/",
+    "maxSize": 50000000,
+    "maxFiles": 5,
+    "showTrace": false
+  },
+  "tasks": [
+    {
+      "name": "testbackup",
+      "type": "Differential",
+      "paths": [
         {
-            "name": "testbackup",
-            "type": "Differential",
-            "paths": [
-                {
-                    "path": "c:/Desenv/",
-                    "includesSubfolders": true,
-                    "excludes": [
-                        {
-                            "pattern": "bin",
-                            "appliesTo": "directory"
-                        },
-                        {
-                            "pattern": "obj",
-                            "appliesTo": "Directory"
-                        },
-                        {
-                            "pattern": "node_modules",
-                            "appliesTo": "Directory",
-                            "mode": "Name"
-                        },
-                        {
-                            "pattern": "com.savvion.studio",
-                            "appliesTo": "Directory"
-                        },
-                        {
-                            "pattern": "dbs",
-                            "appliesTo": "Directory"
-                        },
-                        {
-                            "pattern": "gps",
-                            "appliesTo": "Directory"
-                        },
-                        {
-                            "pattern": "packages",
-                            "appliesTo": "Directory"
-                        },
-                        {
-                            "pattern": "\\$tf",
-                            "type": "Regex ",
-                            "appliesTo": "Directory"
-                        },
-                        {
-                            "pattern": "old_but_gold",
-                            "appliesTo": "Directory"
-                        },
-                        {
-                            "pattern": ".*"
-                        },
-                        {
-                            "pattern": "*.r",
-                            "appliesTo": "File"
-                        }
-                    ]
-                }
-            ],
-            "schedules": [
-                {
-                    "type": "ConfigScheduleOnStartUp"
-                }
-            ],
-            "target": {
-                "fileName": "xama_backup",
-                "path": "C:/Users/fabri/OneDrive/Documentos/backups/dev",
-                "compressionMethod": "SevenZip",
-                "compressionLevel": "Ultra",
-                "retention": {
-                    "fullCopiesToKeep": 2,
-                    "makeFullCopieEvery": 6
-                }
+          "path": "c:/Desenv/",
+          "includesSubfolders": true,
+          "excludes": [
+            {
+              "pattern": "bin",
+              "appliesTo": "directory"
+            },
+            {
+              "pattern": "obj",
+              "appliesTo": "Directory"
+            },
+            {
+              "pattern": "node_modules",
+              "appliesTo": "Directory",
+              "mode": "Name"
+            },
+            {
+              "pattern": "com.savvion.studio",
+              "appliesTo": "Directory"
+            },
+            {
+              "pattern": "dbs",
+              "appliesTo": "Directory"
+            },
+            {
+              "pattern": "gps",
+              "appliesTo": "Directory"
+            },
+            {
+              "pattern": "packages",
+              "appliesTo": "Directory"
+            },
+            {
+              "pattern": "\\$tf",
+              "type": "Regex ",
+              "appliesTo": "Directory"
+            },
+            {
+              "pattern": "old_but_gold",
+              "appliesTo": "Directory"
+            },
+            {
+              "pattern": ".*"
+            },
+            {
+              "pattern": "*.r",
+              "appliesTo": "File"
             }
+          ]
         }
-    ]
+      ],
+      "schedules": [
+        {
+          "type": "ConfigScheduleOnStartUp"
+        }
+      ],
+      "target": {
+        "fileName": "xama_backup",
+        "path": "C:/Users/fabri/OneDrive/Documentos/backups/dev",
+        "compressionMethod": "SevenZip",
+        "compressionLevel": "Ultra",
+        "retention": {
+          "fullCopiesToKeep": 2,
+          "makeFullCopieEvery": 6
+        }
+      }
+    }
+  ]
 }
